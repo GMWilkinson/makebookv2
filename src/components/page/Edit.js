@@ -45,7 +45,7 @@ export default class Edit extends React.Component {
                 <p className="control">
                   <textarea className="textarea"
                     name="text"
-                    value={this.state.text || ''}
+                    value={this.state.text || `${page.text}`}
                     onChange={this.handleChange}
                   />
                 </p>

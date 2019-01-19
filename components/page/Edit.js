@@ -99,7 +99,7 @@ var Edit = function (_React$Component) {
                 { className: 'control' },
                 _react2.default.createElement('textarea', { className: 'textarea',
                   name: 'text',
-                  value: this.state.text || '',
+                  value: this.state.text || '' + page.text,
                   onChange: this.handleChange
                 })
               )
