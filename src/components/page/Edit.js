@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { handleChange } from '../../lib/common';
 
 export default class Edit extends React.Component {
   constructor(props) {

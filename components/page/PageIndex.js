@@ -90,6 +90,11 @@ var PageIndex = function (_React$Component) {
           ),
           _react2.default.createElement(
             _reactRouterDom.Link,
+            { to: '/books/' + book + '/pages/first' },
+            'Create a new first page.'
+          ),
+          _react2.default.createElement(
+            _reactRouterDom.Link,
             { to: '/books/' + book + '/pages/new' },
             'Create a new page.'
           ),

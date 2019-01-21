@@ -77,7 +77,9 @@ var UnfinishedBookIndex = function (_React$Component) {
     value: function render() {
       var _this5 = this;
 
-      console.log('this is this.state.books', this.state.books);
+      var username = (0, _auth.decodeToken)().username;
+      // if (book.author === username)
+      console.log('this is', username);
       return _react2.default.createElement(
         'section',
         { className: '' },
@@ -92,6 +94,12 @@ var UnfinishedBookIndex = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'columns is-multiline' },
+            (0, _auth.isAuthenticated)() && _react2.default.createElement(
+              'p',
+              { className: 'title is-3' },
+              'Hello ',
+              username
+            ),
             this.state.books && this.state.books.map(function (book) {
               return _react2.default.createElement(
                 'div',

@@ -88,7 +88,7 @@ var PageShow = function (_React$Component) {
     key: 'render',
     value: function render() {
       var page = this.state.page;
-      console.log('this.state is', this.state);
+      console.log('this is', this);
       return _react2.default.createElement(
         'section',
         null,

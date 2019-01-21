@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { handleChange } from '../../lib/common';
-import PageForm from './PageForm';
+import NewPageForm from './NewPageForm';
 import { isAuthenticated, decodeToken } from '../../lib/auth';
 
 export default class NewFirstPage extends React.Component {
@@ -12,7 +12,7 @@ export default class NewFirstPage extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    axios.get(`/api/books/${this.props.match.params.id}/pages`)
+    axios.get(`/api/books/${this.props.match.params.id}/pages/first`)
       .then(res => {
         // console.log({ page: res.data });
         this.setState({ page: res.data });
@@ -22,7 +22,7 @@ export default class NewFirstPage extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log('Submit handled', this.props.match.params.id);
-    axios.post(`/api/books/${this.props.match.params.id}/pages`, this.state)
+    axios.post(`/api/books/${this.props.match.params.id}/pages/first`, this.state)
       .then(() => this.props.history.push(`/books/${this.props.match.params.id}/pages`));
   }
 
@@ -36,7 +36,7 @@ export default class NewFirstPage extends React.Component {
           {isAuthenticated() && <p className="title is-3">Created by {decodeToken().username}</p>}
           <div>
           </div>
-          <PageForm
+          <NewPageForm
             handleChange = {this.handleChange}
             handleSubmit = {this.handleSubmit}
           />

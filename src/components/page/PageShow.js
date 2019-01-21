@@ -42,7 +42,7 @@ export default class PageShow extends React.Component {
 
   render() {
     const page = this.state.page;
-    console.log('this.state is', this.state);
+    console.log('this is', this);
     return (
       <section>
         {page

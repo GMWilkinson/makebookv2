@@ -16,9 +16,9 @@ var _axios2 = _interopRequireDefault(_axios);
 
 var _common = require('../../lib/common');
 
-var _PageForm = require('./PageForm');
+var _NewPageForm = require('./NewPageForm');
 
-var _PageForm2 = _interopRequireDefault(_PageForm);
+var _NewPageForm2 = _interopRequireDefault(_NewPageForm);
 
 var _auth = require('../../lib/auth');
 
@@ -49,7 +49,7 @@ var NewFirstPage = function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      _axios2.default.get('/api/books/' + this.props.match.params.id + '/pages').then(function (res) {
+      _axios2.default.get('/api/books/' + this.props.match.params.id + '/pages/first').then(function (res) {
         // console.log({ page: res.data });
         _this2.setState({ page: res.data });
       });
@@ -61,7 +61,7 @@ var NewFirstPage = function (_React$Component) {
 
       e.preventDefault();
       console.log('Submit handled', this.props.match.params.id);
-      _axios2.default.post('/api/books/' + this.props.match.params.id + '/pages', this.state).then(function () {
+      _axios2.default.post('/api/books/' + this.props.match.params.id + '/pages/first', this.state).then(function () {
         return _this3.props.history.push('/books/' + _this3.props.match.params.id + '/pages');
       });
     }
@@ -88,7 +88,7 @@ var NewFirstPage = function (_React$Component) {
             (0, _auth.decodeToken)().username
           ),
           _react2.default.createElement('div', null),
-          _react2.default.createElement(_PageForm2.default, {
+          _react2.default.createElement(_NewPageForm2.default, {
             handleChange: this.handleChange,
             handleSubmit: this.handleSubmit
           })
