@@ -88,16 +88,21 @@ var PageIndex = function (_React$Component) {
             { className: 'title' },
             'All the pages'
           ),
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/books/' + book + '/pages/first' },
-            'Create a new first page.'
-          ),
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/books/' + book + '/pages/new' },
-            'Create a new page.'
-          ),
+          function () {
+            if (page.length === 0) {
+              return _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/books/' + book + '/pages/first' },
+                'Create a new first page.'
+              );
+            } else {
+              return _react2.default.createElement(
+                _reactRouterDom.Link,
+                { to: '/books/' + book + '/pages/new' },
+                'Create a new page.'
+              );
+            }
+          }(),
           _react2.default.createElement(
             'div',
             { className: 'columns is-multiline' },

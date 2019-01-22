@@ -44,8 +44,13 @@ class PageIndex extends React.Component {
           ?
           <div className="column is-12">
             <h1 className="title">All the pages</h1>
-            <Link to={`/books/${book}/pages/first`}>Create a new first page.</Link>
-            <Link to={`/books/${book}/pages/new`}>Create a new page.</Link>
+            {(() => {
+              if (page.length === 0) {
+                return <Link to={`/books/${book}/pages/first`}>Create a new first page.</Link>; 
+              } else {
+                return <Link to={`/books/${book}/pages/new`}>Create a new page.</Link>;
+              }
+            })()}
             <div className="columns is-multiline">
               {page && page.map(page =>
                 <div className="column is-3" key={page._id}>
