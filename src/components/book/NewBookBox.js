@@ -5,6 +5,7 @@ function NewBookBox({ book }) {
   return (
     <div>
       <Link className="column is-4" to={`/books/${book._id}`}>Read</Link>
+      <Link className="column is-4" to={`/books/${book._id}/edit`}>Edit</Link>
       <Link className="column is-4" to={`/books/${book._id}/pages`}>
         <article>
           <h3 className="is-subtitle is-3">{book.title}</h3>

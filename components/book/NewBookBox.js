@@ -25,6 +25,11 @@ function NewBookBox(_ref) {
     ),
     _react2.default.createElement(
       _reactRouterDom.Link,
+      { className: 'column is-4', to: '/books/' + book._id + '/edit' },
+      'Edit'
+    ),
+    _react2.default.createElement(
+      _reactRouterDom.Link,
       { className: 'column is-4', to: '/books/' + book._id + '/pages' },
       _react2.default.createElement(
         'article',

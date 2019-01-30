@@ -24,6 +24,10 @@ var _BookShow = require('./components/book/BookShow');
 
 var _BookShow2 = _interopRequireDefault(_BookShow);
 
+var _BookEdit = require('./components/book/BookEdit');
+
+var _BookEdit2 = _interopRequireDefault(_BookEdit);
+
 var _NewFirstPage = require('./components/page/NewFirstPage');
 
 var _NewFirstPage2 = _interopRequireDefault(_NewFirstPage);
@@ -133,6 +137,7 @@ var App = function (_React$Component) {
               _react2.default.createElement(_reactRouterDom.Route, { path: '/books/:id/pages', component: _PageIndex2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/books/new', component: _New2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/books/unfinished', component: _UnfinishedBookIndex2.default }),
+              _react2.default.createElement(_reactRouterDom.Route, { path: '/books/:id/edit', component: _BookEdit2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { path: '/books/:id', component: _BookShow2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { path: '/users', component: _Profile2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/login', component: _Login2.default }),

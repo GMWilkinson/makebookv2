@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import BookIndex from './components/book/BookIndex';
 import BookShow from './components/book/BookShow';
+import BookEdit from './components/book/BookEdit';
 import NewFirstPage from './components/page/NewFirstPage';
 import Story from './components/page/Story';
 import PageIndex from './components/page/PageIndex';
@@ -44,6 +45,7 @@ class App extends React.Component {
               <Route path='/books/:id/pages' component={PageIndex}/>
               <Route exact path='/books/new' component={BookNew}/>
               <Route exact path='/books/unfinished' component={UnfinishedBookIndex}/>
+              <Route path='/books/:id/edit' component={BookEdit}/>
               <Route path='/books/:id' component={BookShow}/>
               <Route path='/users' component={Profile}/>
               <Route exact path='/login' component={AuthLogin}/>

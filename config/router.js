@@ -14,7 +14,7 @@ router.route('/books/unfinished')
 
 router.route('/books/:bookId')
   .get(books.show)
-  .put(pages.update)
+  .put(books.update)
   .delete(books.delete);
 
 router.route('/users')
