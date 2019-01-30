@@ -15,7 +15,7 @@ function NewBookBox({ book }) {
         </article>
       </Link>
     </div>
-  );
+  )
 }
 
 export default NewBookBox;

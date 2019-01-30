@@ -1,11 +1,20 @@
 import React from 'react';
 import axios from 'axios';
 import BookBox from './BookBox';
+import { authorizationHeader } from '../../lib/auth';
 
 class BookIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+  }
+
+  deleteBook(id) {
+    console.log('deleting page', id);
+    axios.delete(`/api/books/${this.props.match.params.id}`, authorizationHeader())
+      .then(res => {
+        this.setState({ page: res.data});
+      });
   }
 
   componentDidMount() {

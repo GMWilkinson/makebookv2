@@ -28,10 +28,20 @@ function createRoute(req, res, next) {
     .then(book => res.status(201).json(book))
     .catch(next);
 }
+
+function updateRoute(req, res, next) {
+  Book.findById(req.params.bookId)
+    .then(page => page.set(req.body))
+    .then(page => page.save())
+    .then(book => res.json(book))
+    .catch(next);
+}
+
 module.exports ={
   index: indexRoute,
   creatingIndex: creatingIndexRoute,
   delete: deleteRoute,
   show: showRoute,
-  create: createRoute
+  create: createRoute,
+  update: updateRoute
 };

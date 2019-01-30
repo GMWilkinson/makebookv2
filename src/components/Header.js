@@ -24,7 +24,6 @@ class Header extends React.Component {
         {this.state.url && <p>{this.state.url}</p>}
         <div className="navbar-brand">
           <h2 className="title is-2 page-header">MakeBook</h2>
-          {isAuthenticated() && <Link to="/users"><p className="">{decodeToken().username}'s profile</p></Link>}
         </div>
         <div className="navbar-end">
           <Link className="navbar-item page-header is-vcentered" to="/books">Finished Books</Link>
@@ -33,6 +32,9 @@ class Header extends React.Component {
           {!isAuthenticated() && <Link className="navbar-item page-header" to="/register">Register</Link>}
           {!isAuthenticated() && <Link className="navbar-item page-header" to="/login">Login</Link>}
           {isAuthenticated() && <a onClick={this.handleLogout} className="navbar-item page-header" to="/login">Logout</a>}
+          <div className="navbar-start">
+            {isAuthenticated() && <Link to="/users"><p className="">{decodeToken().username}'s profile</p></Link>}
+          </div>
         </div>
       </nav>
     );

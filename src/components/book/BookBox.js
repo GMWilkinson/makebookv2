@@ -10,6 +10,7 @@ function BookBox({ book }) {
           <img src={book.image} />
         </figure>
         <p>{book.author}</p>
+        <a className="card-footer-item" onClick={() => this.deleteBook(book._id)}>Delete</a>
       </article>
     </Link>
   );

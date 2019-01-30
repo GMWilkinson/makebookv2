@@ -8,6 +8,7 @@ class UnfinishedBookIndex extends React.Component {
     super(props);
     this.state = {};
     this.handleClick = this.handleClick.bind(this);
+    this.deleteBook = this.deleteBook.bind(this);
   }
 
   handleClick() {
@@ -26,9 +27,7 @@ class UnfinishedBookIndex extends React.Component {
   deleteBook(id) {
     console.log('deleting book', id);
     axios.delete(`/api/books/${id}`, authorizationHeader())
-      .then(res => {
-        this.setState({ page: res.data});
-      });
+      .then(this.props.history.push('/'));
   }
 
   render() {
@@ -45,7 +44,7 @@ class UnfinishedBookIndex extends React.Component {
               book =>
                 <div className="column box-margin is-6" key={book._id}>
                   <NewBookBox className="" book={book}/>
-                  <a className="delete" onClick={() => this.deleteBook(book._id)}>Delete</a>
+                  <p className="card-footer-item" onClick={() => this.deleteBook(book._id)}>Delete</p>
                 </div>
             )}
             <div>

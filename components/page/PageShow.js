@@ -80,7 +80,8 @@ var PageShow = function (_React$Component) {
           pageId = _props$match$params.pageId;
 
       _axios2.default.get('/api/books/' + bookId + '/pages/' + pageId).then(_axios2.default.get('/api/books/' + this.props.match.params.id + '/pages')).then(function (res) {
-        console.log({ page: res.data });
+        console.log('page: res.data is', { page: res.data });
+        console.log({ res: res });
         _this3.setState({ page: res.data });
       });
     }
@@ -88,7 +89,7 @@ var PageShow = function (_React$Component) {
     key: 'render',
     value: function render() {
       var page = this.state.page;
-      console.log('this is', this);
+      console.log('this is this', this.props.match.params);
       return _react2.default.createElement(
         'section',
         null,

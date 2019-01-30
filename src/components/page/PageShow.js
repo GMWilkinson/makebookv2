@@ -35,14 +35,15 @@ export default class PageShow extends React.Component {
     axios.get(`/api/books/${bookId}/pages/${pageId}`)
       .then(axios.get(`/api/books/${this.props.match.params.id}/pages`))
       .then(res => {
-        console.log({ page: res.data });
+        console.log('page: res.data is', { page: res.data });
+        console.log( { res } );
         this.setState({ page: res.data });
       });
   }
 
   render() {
     const page = this.state.page;
-    console.log('this is', this);
+    console.log('this is this', this.props.match.params);
     return (
       <section>
         {page

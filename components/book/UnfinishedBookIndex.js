@@ -38,6 +38,7 @@ var UnfinishedBookIndex = function (_React$Component) {
 
     _this.state = {};
     _this.handleClick = _this.handleClick.bind(_this);
+    _this.deleteBook = _this.deleteBook.bind(_this);
     return _this;
   }
 
@@ -65,17 +66,13 @@ var UnfinishedBookIndex = function (_React$Component) {
   }, {
     key: 'deleteBook',
     value: function deleteBook(id) {
-      var _this4 = this;
-
       console.log('deleting book', id);
-      _axios2.default.delete('/api/books/' + id, (0, _auth.authorizationHeader)()).then(function (res) {
-        _this4.setState({ page: res.data });
-      });
+      _axios2.default.delete('/api/books/' + id, (0, _auth.authorizationHeader)()).then(this.props.history.push('/'));
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this5 = this;
+      var _this4 = this;
 
       var username = (0, _auth.decodeToken)().username;
       // if (book.author === username)
@@ -106,9 +103,9 @@ var UnfinishedBookIndex = function (_React$Component) {
                 { className: 'column box-margin is-6', key: book._id },
                 _react2.default.createElement(_NewBookBox2.default, { className: '', book: book }),
                 _react2.default.createElement(
-                  'a',
-                  { className: 'delete', onClick: function onClick() {
-                      return _this5.deleteBook(book._id);
+                  'p',
+                  { className: 'card-footer-item', onClick: function onClick() {
+                      return _this4.deleteBook(book._id);
                     } },
                   'Delete'
                 )

@@ -18,6 +18,8 @@ var _BookBox = require('./BookBox');
 
 var _BookBox2 = _interopRequireDefault(_BookBox);
 
+var _auth = require('../../lib/auth');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -39,12 +41,22 @@ var BookIndex = function (_React$Component) {
   }
 
   _createClass(BookIndex, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
+    key: 'deleteBook',
+    value: function deleteBook(id) {
       var _this2 = this;
 
+      console.log('deleting page', id);
+      _axios2.default.delete('/api/books/' + this.props.match.params.id, (0, _auth.authorizationHeader)()).then(function (res) {
+        _this2.setState({ page: res.data });
+      });
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this3 = this;
+
       _axios2.default.get('/api/books').then(function (result) {
-        return _this2.setState({ books: result.data });
+        return _this3.setState({ books: result.data });
       });
     }
   }, {

@@ -13,6 +13,8 @@ var _reactRouterDom = require('react-router-dom');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function BookBox(_ref) {
+  var _this = this;
+
   var book = _ref.book;
 
   return _react2.default.createElement(
@@ -35,6 +37,13 @@ function BookBox(_ref) {
         'p',
         null,
         book.author
+      ),
+      _react2.default.createElement(
+        'a',
+        { className: 'card-footer-item', onClick: function onClick() {
+            return _this.deleteBook(book._id);
+          } },
+        'Delete'
       )
     )
   );
