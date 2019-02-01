@@ -34,6 +34,7 @@ class UnfinishedBookIndex extends React.Component {
     const username = decodeToken().username;
     // if (book.author === username)
     console.log('this is', username);
+    console.log('user/author', isAuthenticated)
     return (
       <section className="">
         <div>
@@ -43,8 +44,14 @@ class UnfinishedBookIndex extends React.Component {
             {this.state.books && this.state.books.map(
               book =>
                 <div className="column box-margin is-6" key={book._id}>
-                  <NewBookBox className="" book={book}/>
-                  <p className="card-footer-item" onClick={() => this.deleteBook(book._id)}>Delete</p>
+                  {(() => {
+                    if (book.author === username) {
+                      return <div><NewBookBox className="" book={book}/>
+                        <p className="blue">{book.createdBy}</p>
+                        <p className="card-footer-item" onClick={() => this.deleteBook(book._id)}>Delete</p>
+                      </div>
+                    }
+                  })()}
                 </div>
             )}
             <div>

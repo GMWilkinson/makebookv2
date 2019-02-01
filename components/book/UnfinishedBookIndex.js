@@ -77,6 +77,7 @@ var UnfinishedBookIndex = function (_React$Component) {
       var username = (0, _auth.decodeToken)().username;
       // if (book.author === username)
       console.log('this is', username);
+      console.log('user/author', _auth.isAuthenticated);
       return _react2.default.createElement(
         'section',
         { className: '' },
@@ -101,14 +102,27 @@ var UnfinishedBookIndex = function (_React$Component) {
               return _react2.default.createElement(
                 'div',
                 { className: 'column box-margin is-6', key: book._id },
-                _react2.default.createElement(_NewBookBox2.default, { className: '', book: book }),
-                _react2.default.createElement(
-                  'p',
-                  { className: 'card-footer-item', onClick: function onClick() {
-                      return _this4.deleteBook(book._id);
-                    } },
-                  'Delete'
-                )
+                function () {
+                  if (book.author === username) {
+                    return _react2.default.createElement(
+                      'div',
+                      null,
+                      _react2.default.createElement(_NewBookBox2.default, { className: '', book: book }),
+                      _react2.default.createElement(
+                        'p',
+                        { className: 'blue' },
+                        book.createdBy
+                      ),
+                      _react2.default.createElement(
+                        'p',
+                        { className: 'card-footer-item', onClick: function onClick() {
+                            return _this4.deleteBook(book._id);
+                          } },
+                        'Delete'
+                      )
+                    );
+                  }
+                }()
               );
             }),
             _react2.default.createElement('div', null)

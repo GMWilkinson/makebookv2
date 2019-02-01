@@ -11,7 +11,7 @@ function creatingIndexRoute(req, res, next) {
     .catch(next);
 }
 function showRoute(req, res, next) {
-  Book.findById(req.params.id)
+  Book.findById(req.params.bookId)
     // .populate('ratings.user')
     .then(book => res.json(book))
     .catch(next);

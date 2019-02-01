@@ -18,11 +18,11 @@ function BookBox(_ref) {
   var book = _ref.book;
 
   return _react2.default.createElement(
-    _reactRouterDom.Link,
-    { className: 'column is-4', to: '/books/' + book._id },
+    'article',
+    null,
     _react2.default.createElement(
-      'article',
-      null,
+      _reactRouterDom.Link,
+      { className: 'column is-4', to: '/books/' + book._id },
       _react2.default.createElement(
         'h3',
         { className: 'is-subtitle is-3' },
@@ -37,14 +37,14 @@ function BookBox(_ref) {
         'p',
         null,
         book.author
-      ),
-      _react2.default.createElement(
-        'a',
-        { className: 'card-footer-item', onClick: function onClick() {
-            return _this.deleteBook(book._id);
-          } },
-        'Delete'
       )
+    ),
+    _react2.default.createElement(
+      'a',
+      { className: 'card-footer-item', onClick: function onClick() {
+          return _this.deleteBook(book._id);
+        } },
+      'Delete'
     )
   );
 }
