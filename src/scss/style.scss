@@ -1,6 +1,26 @@
+
 .navbar-start {
   text-align: right;
 }
-.blue {
-  background-color: blue;
+.hero {
+  background-color: papayawhip;
+}
+.copyId {
+  display: none;
+}
+.copied {
+  text-align: center;
+  font-size: 40px;
+}
+.page-index-box {
+  height: 300px;
+  position: relative;
+}
+.page-index-content {
+  overflow: scroll;
+}
+.card-footer {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
 }

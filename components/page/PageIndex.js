@@ -14,9 +14,17 @@ var _axios = require('axios');
 
 var _axios2 = _interopRequireDefault(_axios);
 
+var _reactCopyToClipboard = require('react-copy-to-clipboard');
+
 var _auth = require('../../lib/auth');
 
 var _reactRouterDom = require('react-router-dom');
+
+var _randomHint = require('../../lib/randomHint');
+
+var _HintBox = require('./HintBox');
+
+var _HintBox2 = _interopRequireDefault(_HintBox);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36,6 +44,8 @@ var PageIndex = function (_React$Component) {
 
     _this.state = {};
     _this.handleClick = _this.handleClick.bind(_this);
+    _this.onChange = _this.onChange.bind(_this);
+    _this.onCopy = _this.onCopy.bind(_this);
     _this.deletePage = _this.deletePage.bind(_this);
     return _this;
   }
@@ -70,6 +80,18 @@ var PageIndex = function (_React$Component) {
       });
     }
   }, {
+    key: 'onChange',
+    value: function onChange(_ref) {
+      var value = _ref.target.value;
+
+      this.setState({ value: value, copied: false });
+    }
+  }, {
+    key: 'onCopy',
+    value: function onCopy() {
+      this.setState({ copied: true });
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this5 = this;
@@ -88,6 +110,13 @@ var PageIndex = function (_React$Component) {
             { className: 'title' },
             'All the pages'
           ),
+          this.state.copied ? _react2.default.createElement(
+            'span',
+            { className: 'copied', style: { color: 'red' } },
+            'Copied ',
+            page.pageName
+          ) : null,
+          _react2.default.createElement(_HintBox2.default, null),
           function () {
             if (page.length === 0) {
               return _react2.default.createElement(
@@ -112,21 +141,49 @@ var PageIndex = function (_React$Component) {
                 { className: 'column is-3', key: page._id },
                 _react2.default.createElement(
                   'div',
-                  { className: 'card' },
+                  { className: 'card page-index-box' },
                   _react2.default.createElement(
                     'header',
                     { className: 'card-header' },
                     _react2.default.createElement(
-                      'h2',
+                      'div',
                       null,
-                      page.pageName,
-                      ' ',
-                      page._id
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'subtitle has-text-centered' },
+                        _react2.default.createElement(
+                          'h2',
+                          null,
+                          page.pageName
+                        )
+                      ),
+                      _react2.default.createElement(
+                        'div',
+                        null,
+                        _react2.default.createElement('input', { value: page._id,
+                          onChange: function onChange(_ref2) {
+                            var value = _ref2.target.value;
+                            return _this5.setState({ value: value, copied: false });
+                          },
+                          className: 'copyId' }),
+                        _react2.default.createElement(
+                          _reactCopyToClipboard.CopyToClipboard,
+                          { text: page._id,
+                            onCopy: function onCopy() {
+                              return _this5.setState({ copied: true });
+                            } },
+                          _react2.default.createElement(
+                            'button',
+                            null,
+                            'Click here to copy this page\'s unique id! Then paste it in the box next to the choice text to link this page to the choice.'
+                          )
+                        )
+                      )
                     )
                   ),
                   _react2.default.createElement(
                     'div',
-                    { className: 'content' },
+                    { className: 'content page-index-content' },
                     _react2.default.createElement(
                       'p',
                       { className: 'page-index' },

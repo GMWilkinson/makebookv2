@@ -77,12 +77,12 @@ var Header = function (_React$Component) {
           (0, _auth.isAuthenticated)() && _react2.default.createElement(
             _reactRouterDom.Link,
             { className: 'navbar-item page-header', to: '/books/new' },
-            'Create your own story!'
+            'Create Your Own Story!'
           ),
           (0, _auth.isAuthenticated)() && _react2.default.createElement(
             _reactRouterDom.Link,
             { className: 'navbar-item page-header', to: '/books/unfinished' },
-            'Carry on with a story!'
+            'Your Unfinished Books'
           ),
           !(0, _auth.isAuthenticated)() && _react2.default.createElement(
             _reactRouterDom.Link,

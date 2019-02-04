@@ -38,11 +38,11 @@ export default class BookEdit extends React.Component {
         {book
           ?
           <section>
-            <p>{ book[0].title }</p>
+            <h2>Title</h2>
             <div className="media-content">
               <div className="field">
                 <p className="control">
-                  <textarea className="textarea"
+                  <input className="input"
                     name="title"
                     value={this.state.title || `${book[0].title}`}
                     onChange={this.handleChange}
@@ -50,10 +50,11 @@ export default class BookEdit extends React.Component {
                 </p>
               </div>
             </div>
+            <h2>Author</h2>
             <div className="media-content">
               <div className="field">
                 <p className="control">
-                  <textarea className="textarea"
+                  <input className="input"
                     name="author"
                     value={this.state.author || `${book[0].author}`}
                     onChange={this.handleChange}
@@ -61,21 +62,37 @@ export default class BookEdit extends React.Component {
                 </p>
               </div>
             </div>
+            <h2>Add a blurb here</h2>
             <div className="media-content">
               <div className="field">
                 <p className="control">
                   <textarea className="textarea"
-                    name="isCompleted"
-                    value={this.state.isCompleted || `${book[0].isCompleted}`}
+                    name="author"
+                    value={this.state.blurb || ''}
                     onChange={this.handleChange}
                   />
+                </p>
+              </div>
+            </div>
+            <div className="media-content">
+              <div className="field">
+                <p className="control">
+                  <label htmlFor="isCompleted">
+                    <h2>Is the Book ready for all to read?</h2>
+                    <p>Type <strong>true</strong> in the box if ready to publish. The book will then be available on the finished books page!</p>
+                    <textarea className="textarea"
+                      name="isCompleted"
+                      value={this.state.isCompleted || `${book[0].isCompleted}`}
+                      onChange={this.handleChange}
+                    />
+                  </label>
                 </p>
               </div>
             </div>
             <nav className="level">
               <div className="level-left">
                 <div className="level-item" onClick={this.handleSubmit}>
-                  <a className="button is-info">Submit</a>
+                  <a className="button is-info">Save Changes</a>
                 </div>
               </div>
             </nav>

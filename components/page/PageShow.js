@@ -112,7 +112,7 @@ var PageShow = function (_React$Component) {
             _react2.default.createElement(
               'h2',
               null,
-              page._id
+              page.text
             ),
             page && page.choices.map(function (choice) {
               return _react2.default.createElement(
@@ -121,12 +121,8 @@ var PageShow = function (_React$Component) {
                 _react2.default.createElement(
                   'h2',
                   null,
+                  'Choice: ',
                   choice.text
-                ),
-                _react2.default.createElement(
-                  'h2',
-                  null,
-                  choice.nextPage
                 )
               );
             })
@@ -139,8 +135,12 @@ var PageShow = function (_React$Component) {
               { className: 'media-left' },
               _react2.default.createElement(
                 'p',
-                { className: 'image is-64x64' },
-                _react2.default.createElement('img', { src: (0, _auth.decodeToken)().image })
+                { className: '' },
+                _react2.default.createElement(
+                  'h3',
+                  null,
+                  (0, _auth.decodeToken)().username
+                )
               )
             ),
             _react2.default.createElement(
@@ -153,7 +153,7 @@ var PageShow = function (_React$Component) {
                   'p',
                   { className: 'control' },
                   _react2.default.createElement('textarea', { className: 'textarea',
-                    placeholder: 'Add a choice..',
+                    placeholder: 'Add the text of your choice here...',
                     name: 'text',
                     value: this.state.text || '',
                     onChange: this.handleChange
@@ -170,8 +170,8 @@ var PageShow = function (_React$Component) {
                 _react2.default.createElement(
                   'p',
                   { className: 'control' },
-                  _react2.default.createElement('textarea', { className: 'textarea',
-                    placeholder: 'Link to',
+                  _react2.default.createElement('input', { className: 'input',
+                    placeholder: 'Paste the page that you want to connect to this choice here...',
                     name: 'nextPage',
                     value: this.state.nextPage || '',
                     onChange: this.handleChange
@@ -190,7 +190,7 @@ var PageShow = function (_React$Component) {
                     _react2.default.createElement(
                       'a',
                       { className: 'button is-info' },
-                      'Submit'
+                      'Create choice'
                     )
                   )
                 )

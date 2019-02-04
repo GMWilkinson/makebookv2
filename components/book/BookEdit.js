@@ -80,9 +80,9 @@ var BookEdit = function (_React$Component) {
           'section',
           null,
           _react2.default.createElement(
-            'p',
+            'h2',
             null,
-            book[0].title
+            'Title'
           ),
           _react2.default.createElement(
             'div',
@@ -93,13 +93,40 @@ var BookEdit = function (_React$Component) {
               _react2.default.createElement(
                 'p',
                 { className: 'control' },
-                _react2.default.createElement('textarea', { className: 'textarea',
+                _react2.default.createElement('input', { className: 'input',
                   name: 'title',
                   value: this.state.title || '' + book[0].title,
                   onChange: this.handleChange
                 })
               )
             )
+          ),
+          _react2.default.createElement(
+            'h2',
+            null,
+            'Author'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'media-content' },
+            _react2.default.createElement(
+              'div',
+              { className: 'field' },
+              _react2.default.createElement(
+                'p',
+                { className: 'control' },
+                _react2.default.createElement('input', { className: 'input',
+                  name: 'author',
+                  value: this.state.author || '' + book[0].author,
+                  onChange: this.handleChange
+                })
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'h2',
+            null,
+            'Add a blurb here'
           ),
           _react2.default.createElement(
             'div',
@@ -112,7 +139,7 @@ var BookEdit = function (_React$Component) {
                 { className: 'control' },
                 _react2.default.createElement('textarea', { className: 'textarea',
                   name: 'author',
-                  value: this.state.author || '' + book[0].author,
+                  value: this.state.blurb || '',
                   onChange: this.handleChange
                 })
               )
@@ -127,11 +154,31 @@ var BookEdit = function (_React$Component) {
               _react2.default.createElement(
                 'p',
                 { className: 'control' },
-                _react2.default.createElement('textarea', { className: 'textarea',
-                  name: 'isCompleted',
-                  value: this.state.isCompleted || '' + book[0].isCompleted,
-                  onChange: this.handleChange
-                })
+                _react2.default.createElement(
+                  'label',
+                  { htmlFor: 'isCompleted' },
+                  _react2.default.createElement(
+                    'h2',
+                    null,
+                    'Is the Book ready for all to read?'
+                  ),
+                  _react2.default.createElement(
+                    'p',
+                    null,
+                    'Type ',
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'true'
+                    ),
+                    ' in the box if ready to publish. The book will then be available on the finished books page!'
+                  ),
+                  _react2.default.createElement('textarea', { className: 'textarea',
+                    name: 'isCompleted',
+                    value: this.state.isCompleted || '' + book[0].isCompleted,
+                    onChange: this.handleChange
+                  })
+                )
               )
             )
           ),
@@ -147,7 +194,7 @@ var BookEdit = function (_React$Component) {
                 _react2.default.createElement(
                   'a',
                   { className: 'button is-info' },
-                  'Submit'
+                  'Save Changes'
                 )
               )
             )

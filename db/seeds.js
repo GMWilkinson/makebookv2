@@ -59,6 +59,7 @@ const bookData = [{
   isCompleted: true,
   title: 'WDI 37',
   author: 'Bob',
+  blurb: 'This is a short example story that I made to take up some space.',
   image: 'https://i.pinimg.com/originals/6a/5a/f0/6a5af02950db36b62e18773bb1adbf18.jpg'
 }];
 

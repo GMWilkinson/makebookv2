@@ -45,13 +45,17 @@ var Profile = function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      _axios2.default.get('/api/books').then(function (result) {
+      _axios2.default.get('/api/books/unfinished').then(function (result) {
         return _this2.setState({ books: result.data });
       });
     }
   }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
+
+      var username = (0, _auth.decodeToken)().username;
+      console.log('username is', username);
       return _react2.default.createElement(
         'section',
         null,
@@ -73,7 +77,47 @@ var Profile = function (_React$Component) {
             'div',
             { className: 'columns' },
             this.state.books && this.state.books.map(function (book) {
-              return _react2.default.createElement(_MyBookBox2.default, { key: book._id, book: book });
+              return _react2.default.createElement(
+                'div',
+                { className: 'column is-6', key: book._id },
+                function () {
+                  if (book.author === username) {
+                    return _react2.default.createElement(
+                      'div',
+                      { className: 'card' },
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'card-header' },
+                        _react2.default.createElement(
+                          'h2',
+                          { className: 'blue' },
+                          book.title
+                        )
+                      ),
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'content' },
+                        _react2.default.createElement(
+                          'p',
+                          null,
+                          book.blurb
+                        )
+                      ),
+                      _react2.default.createElement(
+                        'div',
+                        null,
+                        _react2.default.createElement(
+                          'p',
+                          { className: 'card-footer-item', onClick: function onClick() {
+                              return _this3.deleteBook(book._id);
+                            } },
+                          'Delete'
+                        )
+                      )
+                    );
+                  }
+                }()
+              );
             })
           )
         )

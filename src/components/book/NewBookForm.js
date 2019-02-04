@@ -1,12 +1,13 @@
 import React from 'react';
-
+import { isAuthenticated, decodeToken } from '../../lib/auth';
 import FormInput from './FormInput';
 import FormButton from './FormButton';
 
-function PageForm({ handleChange, handleSubmit }) {
+function NewBookForm({ handleChange, handleSubmit }) {
   return(
     <form onSubmit={handleSubmit}>
       <FormInput name="title" type="text" handleChange={handleChange} />
+      <span>Your Author name must be {decodeToken().username}</span>
       <FormInput name="author" type="text" handleChange={handleChange} />
       <FormInput name="image" type="text" handleChange={handleChange} />
       <FormButton text="Create Book"/>
@@ -14,4 +15,4 @@ function PageForm({ handleChange, handleSubmit }) {
   );
 }
 
-export default PageForm;
+export default NewBookForm;

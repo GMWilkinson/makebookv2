@@ -53,25 +53,24 @@ export default class PageShow extends React.Component {
             <div>
               <h1>Page</h1>
               <h2>{ page.pageName }</h2>
-              <h2>{ page._id }</h2>
+              <h2>{ page.text }</h2>
               {page && page.choices.map(choice =>
                 <div className="column is-3" key={choice._id}>
-                  <h2>{ choice.text }</h2>
-                  <h2>{ choice.nextPage }</h2>
+                  <h2>Choice: { choice.text }</h2>
                 </div>
               )}
             </div>
             <article className="media">
               <figure className="media-left">
-                <p className="image is-64x64">
-                  <img src={decodeToken().image}/>
+                <p className="">
+                  <h3>{decodeToken().username}</h3>
                 </p>
               </figure>
               <div className="media-content">
                 <div className="field">
                   <p className="control">
                     <textarea className="textarea"
-                      placeholder="Add a choice.."
+                      placeholder="Add the text of your choice here..."
                       name="text"
                       value={this.state.text || ''}
                       onChange={this.handleChange}
@@ -82,8 +81,8 @@ export default class PageShow extends React.Component {
               <div className="media-content">
                 <div className="field">
                   <p className="control">
-                    <textarea className="textarea"
-                      placeholder="Link to"
+                    <input className="input"
+                      placeholder="Paste the page that you want to connect to this choice here..."
                       name="nextPage"
                       value={this.state.nextPage || ''}
                       onChange={this.handleChange}
@@ -93,7 +92,7 @@ export default class PageShow extends React.Component {
                 <nav className="level">
                   <div className="level-left">
                     <div className="level-item" onClick={this.handleSubmit}>
-                      <a className="button is-info">Submit</a>
+                      <a className="button is-info">Create choice</a>
                     </div>
                   </div>
                 </nav>
