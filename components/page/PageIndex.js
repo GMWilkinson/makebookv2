@@ -113,8 +113,13 @@ var PageIndex = function (_React$Component) {
           this.state.copied ? _react2.default.createElement(
             'span',
             { className: 'copied', style: { color: 'red' } },
-            'Copied ',
-            page.pageName
+            'Copied: Now go to ',
+            _react2.default.createElement(
+              'strong',
+              null,
+              'Add Choices'
+            ),
+            ' on the page you you want to link this page to.'
           ) : null,
           _react2.default.createElement(_HintBox2.default, null),
           function () {
@@ -141,7 +146,7 @@ var PageIndex = function (_React$Component) {
                 { className: 'column is-3', key: page._id },
                 _react2.default.createElement(
                   'div',
-                  { className: 'card page-index-box' },
+                  { className: 'card page-card-box' },
                   _react2.default.createElement(
                     'header',
                     { className: 'card-header' },

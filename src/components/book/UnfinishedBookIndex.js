@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import NewBookBox from './NewBookBox';
 import { authorizationHeader, decodeToken, isAuthenticated } from '../../lib/auth';
+import HintBox from '../page/HintBox'
 
 class UnfinishedBookIndex extends React.Component {
   constructor(props) {
@@ -37,18 +38,20 @@ class UnfinishedBookIndex extends React.Component {
     console.log('user/author', isAuthenticated)
     return (
       <section className="">
-        <div>
-          <h1 className="choice-text">Your unfinished books</h1>
+        <div className="">
+          <div className="has-text-centered column is-12">
+            {isAuthenticated() && <p className="title">{username}'s Unfinished Books</p>}
+          </div>
+          <div>
+            <HintBox />
+          </div>
           <div className="columns is-multiline">
-            {isAuthenticated() && <p className="title is-3">Hello {username}</p>}
             {this.state.books && this.state.books.map(
               book =>
                 <div className="column box-margin is-6" key={book._id}>
                   {(() => {
                     if (book.author === username) {
-                      return <div><NewBookBox className="" book={book}/>
-                        <p className="blue">{book.createdBy}</p>
-                        <p className="card-footer-item" onClick={() => this.deleteBook(book._id)}>Delete</p>
+                      return <div className=""><NewBookBox className="columns" book={book}/>
                       </div>
                     }
                   })()}

@@ -63,7 +63,7 @@ var BookEdit = function (_React$Component) {
     value: function componentDidMount() {
       var _this3 = this;
 
-      _axios2.default.get('/api/books/unfinished').then(_axios2.default.get('/api/books/' + this.props.match.params.id)).then(function (res) {
+      _axios2.default.get('/api/books/' + this.props.match.params.id).then(function (res) {
         console.log('this is page: res.data', { book: res.data });
         _this3.setState({ book: res.data });
       });
@@ -71,6 +71,8 @@ var BookEdit = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this4 = this;
+
       var book = this.state.book;
       console.log('book is', book);
       return _react2.default.createElement(
@@ -79,122 +81,124 @@ var BookEdit = function (_React$Component) {
         book ? _react2.default.createElement(
           'section',
           null,
-          _react2.default.createElement(
-            'h2',
-            null,
-            'Title'
-          ),
+          function () {
+            console.log('what is', _this4);
+          }(),
           _react2.default.createElement(
             'div',
-            { className: 'media-content' },
+            { key: book._id },
             _react2.default.createElement(
               'div',
-              { className: 'field' },
+              { className: 'media-content' },
               _react2.default.createElement(
-                'p',
-                { className: 'control' },
-                _react2.default.createElement('input', { className: 'input',
-                  name: 'title',
-                  value: this.state.title || '' + book[0].title,
-                  onChange: this.handleChange
-                })
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'h2',
-            null,
-            'Author'
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'media-content' },
-            _react2.default.createElement(
-              'div',
-              { className: 'field' },
-              _react2.default.createElement(
-                'p',
-                { className: 'control' },
-                _react2.default.createElement('input', { className: 'input',
-                  name: 'author',
-                  value: this.state.author || '' + book[0].author,
-                  onChange: this.handleChange
-                })
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'h2',
-            null,
-            'Add a blurb here'
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'media-content' },
-            _react2.default.createElement(
-              'div',
-              { className: 'field' },
-              _react2.default.createElement(
-                'p',
-                { className: 'control' },
-                _react2.default.createElement('textarea', { className: 'textarea',
-                  name: 'author',
-                  value: this.state.blurb || '',
-                  onChange: this.handleChange
-                })
-              )
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'media-content' },
-            _react2.default.createElement(
-              'div',
-              { className: 'field' },
-              _react2.default.createElement(
-                'p',
-                { className: 'control' },
+                'div',
+                { className: 'field' },
                 _react2.default.createElement(
-                  'label',
-                  { htmlFor: 'isCompleted' },
-                  _react2.default.createElement(
-                    'h2',
-                    null,
-                    'Is the Book ready for all to read?'
-                  ),
-                  _react2.default.createElement(
-                    'p',
-                    null,
-                    'Type ',
-                    _react2.default.createElement(
-                      'strong',
-                      null,
-                      'true'
-                    ),
-                    ' in the box if ready to publish. The book will then be available on the finished books page!'
-                  ),
-                  _react2.default.createElement('textarea', { className: 'textarea',
-                    name: 'isCompleted',
-                    value: this.state.isCompleted || '' + book[0].isCompleted,
+                  'p',
+                  { className: 'control' },
+                  _react2.default.createElement('input', { className: 'input',
+                    name: 'title',
+                    value: this.state.title || '' + book.title,
                     onChange: this.handleChange
                   })
                 )
               )
-            )
-          ),
-          _react2.default.createElement(
-            'nav',
-            { className: 'level' },
+            ),
+            _react2.default.createElement(
+              'h2',
+              null,
+              'Author'
+            ),
             _react2.default.createElement(
               'div',
-              { className: 'level-left' },
+              { className: 'media-content' },
               _react2.default.createElement(
                 'div',
-                { className: 'level-item', onClick: this.handleSubmit },
+                { className: 'field' },
                 _react2.default.createElement(
-                  'a',
-                  { className: 'button is-info' },
-                  'Save Changes'
+                  'p',
+                  { className: 'control' },
+                  _react2.default.createElement('input', { className: 'input',
+                    name: 'author',
+                    value: this.state.author || '' + book.author,
+                    onChange: this.handleChange
+                  })
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'h2',
+              null,
+              'Add a blurb here'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'media-content' },
+              _react2.default.createElement(
+                'div',
+                { className: 'field' },
+                _react2.default.createElement(
+                  'p',
+                  { className: 'control' },
+                  _react2.default.createElement('textarea', { className: 'textarea',
+                    name: 'blurb',
+                    value: this.state.blurb || '' + book.blurb,
+                    onChange: this.handleChange
+                  })
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'media-content' },
+              _react2.default.createElement(
+                'div',
+                { className: 'field' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'control' },
+                  _react2.default.createElement(
+                    'label',
+                    { htmlFor: 'isCompleted' },
+                    _react2.default.createElement(
+                      'h2',
+                      null,
+                      'Is the Book ready for all to read?'
+                    ),
+                    _react2.default.createElement(
+                      'p',
+                      null,
+                      'Type ',
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'true'
+                      ),
+                      ' in the box if ready to publish. The book will then be available on the finished books page!'
+                    ),
+                    _react2.default.createElement('textarea', { className: 'textarea',
+                      name: 'isCompleted',
+                      value: this.state.isCompleted || '' + book.isCompleted,
+                      onChange: this.handleChange
+                    })
+                  )
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'nav',
+              { className: 'level' },
+              _react2.default.createElement(
+                'div',
+                { className: 'level-left' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'level-item', onClick: this.handleSubmit },
+                  _react2.default.createElement(
+                    'a',
+                    { className: 'button is-info' },
+                    'Save Changes'
+                  )
                 )
               )
             )

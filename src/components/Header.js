@@ -32,9 +32,7 @@ class Header extends React.Component {
           {!isAuthenticated() && <Link className="navbar-item page-header" to="/register">Register</Link>}
           {!isAuthenticated() && <Link className="navbar-item page-header" to="/login">Login</Link>}
           {isAuthenticated() && <a onClick={this.handleLogout} className="navbar-item page-header" to="/login">Logout</a>}
-          <div className="navbar-start">
-            {isAuthenticated() && <Link to="/users"><p className="">{decodeToken().username}'s profile</p></Link>}
-          </div>
+          {isAuthenticated() && <Link className="navbar-item page-header" to="/users"><p>{decodeToken().username}'s profile</p></Link>}
         </div>
       </nav>
     );

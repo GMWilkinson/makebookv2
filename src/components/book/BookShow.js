@@ -23,6 +23,9 @@ export default class BookShow extends React.Component {
         {book
           ?
           <div className="columns is-centered">
+            {(() => {
+              console.log('what is', book);
+            })()}
             <Link className="column is-half" to={`/books/${book._id}/story`}>
               <h2 className="shadow white-text title">{ book.title }</h2>
               <figure className="image is-2by3">

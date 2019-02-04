@@ -99,18 +99,14 @@ var Header = function (_React$Component) {
             { onClick: this.handleLogout, className: 'navbar-item page-header', to: '/login' },
             'Logout'
           ),
-          _react2.default.createElement(
-            'div',
-            { className: 'navbar-start' },
-            (0, _auth.isAuthenticated)() && _react2.default.createElement(
-              _reactRouterDom.Link,
-              { to: '/users' },
-              _react2.default.createElement(
-                'p',
-                { className: '' },
-                (0, _auth.decodeToken)().username,
-                '\'s profile'
-              )
+          (0, _auth.isAuthenticated)() && _react2.default.createElement(
+            _reactRouterDom.Link,
+            { className: 'navbar-item page-header', to: '/users' },
+            _react2.default.createElement(
+              'p',
+              null,
+              (0, _auth.decodeToken)().username,
+              '\'s profile'
             )
           )
         )

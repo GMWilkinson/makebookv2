@@ -57,6 +57,9 @@ var BookShow = function (_React$Component) {
         book ? _react2.default.createElement(
           'div',
           { className: 'columns is-centered' },
+          function () {
+            console.log('what is', book);
+          }(),
           _react2.default.createElement(
             _reactRouterDom.Link,
             { className: 'column is-half', to: '/books/' + book._id + '/story' },

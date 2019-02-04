@@ -76,7 +76,7 @@ var BookIndex = function (_React$Component) {
           'div',
           { className: 'columns column is-12 book-index' },
           this.state.books && this.state.books.map(function (book) {
-            return _react2.default.createElement(_BookBox2.default, { className: '', key: book._id, book: book });
+            return _react2.default.createElement(_BookBox2.default, { className: 'columns', key: book._id, book: book });
           })
         )
       );

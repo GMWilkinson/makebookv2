@@ -1,4 +1,6 @@
-
+body {
+  font-family: 'Noto Serif SC', serif;
+}
 .navbar-start {
   text-align: right;
 }
@@ -12,9 +14,12 @@
   text-align: center;
   font-size: 40px;
 }
-.page-index-box {
+.page-card-box {
   height: 300px;
   position: relative;
+}
+.book-card-box {
+  height: 300px;
 }
 .page-index-content {
   overflow: scroll;
@@ -23,4 +28,14 @@
   bottom: 0;
   position: absolute;
   width: 100%;
+}
+.papayawhip {
+  background-color: papayawhip;
+}
+.delete-box {
+  transition: background-color 1s;
+}
+.delete-box:hover {
+  background-color: red;
+  color: white;
 }

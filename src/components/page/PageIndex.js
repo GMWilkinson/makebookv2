@@ -4,7 +4,7 @@ import {CopyToClipboard} from 'react-copy-to-clipboard';
 import { authorizationHeader } from '../../lib/auth';
 import { Link } from 'react-router-dom';
 import { hintRandomizer } from '../../lib/randomHint';
-import HintBox from './HintBox'
+import HintBox from './HintBox';
 
 class PageIndex extends React.Component {
   constructor(props) {
@@ -58,7 +58,7 @@ class PageIndex extends React.Component {
           ?
           <div className="column is-12">
             <h1 className="title">All the pages</h1>
-            {this.state.copied ? <span className="copied" style={{color: 'red'}}>Copied {page.pageName}</span> : null}
+            {this.state.copied ? <span className="copied" style={{color: 'red'}}>Copied: Now go to <strong>Add Choices</strong> on the page you you want to link this page to.</span> : null}
             <HintBox />
             {(() => {
               if (page.length === 0) {
@@ -71,7 +71,7 @@ class PageIndex extends React.Component {
               {page && page.map(page =>
                 <div className="column is-3" key={page._id}>
 
-                  <div className="card page-index-box">
+                  <div className="card page-card-box">
                     <header className="card-header">
                       <div>
                         <div className="subtitle has-text-centered">

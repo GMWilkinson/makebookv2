@@ -30,7 +30,7 @@ class BookIndex extends React.Component {
         <hr />
         <div className="columns column is-12 book-index">
           {this.state.books && this.state.books.map(
-            book => <BookBox className="" key={book._id} book={book}/>
+            book => <BookBox className="columns" key={book._id} book={book}/>
           )}
         </div>
       </section>

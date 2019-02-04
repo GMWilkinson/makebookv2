@@ -2,8 +2,8 @@ export function hintRandomizer() {
   const hints = [
     {hint: 'Remember! If an option ends the story, add a choice to go back to the start.'},
     {hint: 'It\'s a great idea to add a blurb so that your readers will know what your book is about.'},
-    {hint: 'This is a hint test 2'},
-    {hint: 'This is a hint test 3'}
+    {hint: 'Remember! After you have clicked the button to copy the page id, you need to paste it in the choice page.'},
+    {hint: 'It is recommended to write a few pages at a time before connecting them with choices.'}
   ];
   const hintArray = [];
   for (let i = 0; i < hints.length; i++) {

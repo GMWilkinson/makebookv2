@@ -20,6 +20,10 @@ var _NewBookBox2 = _interopRequireDefault(_NewBookBox);
 
 var _auth = require('../../lib/auth');
 
+var _HintBox = require('../page/HintBox');
+
+var _HintBox2 = _interopRequireDefault(_HintBox);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -72,8 +76,6 @@ var UnfinishedBookIndex = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this4 = this;
-
       var username = (0, _auth.decodeToken)().username;
       // if (book.author === username)
       console.log('this is', username);
@@ -83,21 +85,25 @@ var UnfinishedBookIndex = function (_React$Component) {
         { className: '' },
         _react2.default.createElement(
           'div',
-          null,
+          { className: '' },
           _react2.default.createElement(
-            'h1',
-            { className: 'choice-text' },
-            'Your unfinished books'
+            'div',
+            { className: 'has-text-centered column is-12' },
+            (0, _auth.isAuthenticated)() && _react2.default.createElement(
+              'p',
+              { className: 'title' },
+              username,
+              '\'s Unfinished Books'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            _react2.default.createElement(_HintBox2.default, null)
           ),
           _react2.default.createElement(
             'div',
             { className: 'columns is-multiline' },
-            (0, _auth.isAuthenticated)() && _react2.default.createElement(
-              'p',
-              { className: 'title is-3' },
-              'Hello ',
-              username
-            ),
             this.state.books && this.state.books.map(function (book) {
               return _react2.default.createElement(
                 'div',
@@ -106,20 +112,8 @@ var UnfinishedBookIndex = function (_React$Component) {
                   if (book.author === username) {
                     return _react2.default.createElement(
                       'div',
-                      null,
-                      _react2.default.createElement(_NewBookBox2.default, { className: '', book: book }),
-                      _react2.default.createElement(
-                        'p',
-                        { className: 'blue' },
-                        book.createdBy
-                      ),
-                      _react2.default.createElement(
-                        'p',
-                        { className: 'card-footer-item', onClick: function onClick() {
-                            return _this4.deleteBook(book._id);
-                          } },
-                        'Delete'
-                      )
+                      { className: '' },
+                      _react2.default.createElement(_NewBookBox2.default, { className: 'columns', book: book })
                     );
                   }
                 }()
