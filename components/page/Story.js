@@ -68,10 +68,9 @@ var FirstPage = function (_React$Component) {
         page ? _react2.default.createElement(
           'section',
           { className: 'columns' },
-          _react2.default.createElement('div', { className: 'column is-3' }),
           _react2.default.createElement(
             'div',
-            { className: 'column is-6 page' },
+            { className: 'column is-6 is-offset-3 page' },
             _react2.default.createElement('h1', { className: 'title' }),
             _react2.default.createElement(
               'p',
@@ -84,7 +83,7 @@ var FirstPage = function (_React$Component) {
               page && page.choices.map(function (choice) {
                 return _react2.default.createElement(
                   'div',
-                  { className: 'choice-text', key: choice._id, onClick: function onClick() {
+                  { className: 'choice-text-box', key: choice._id, onClick: function onClick() {
                       return _this4.handleClick(choice.nextPage);
                     } },
                   _react2.default.createElement(

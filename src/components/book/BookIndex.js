@@ -1,20 +1,19 @@
 import React from 'react';
 import axios from 'axios';
 import BookBox from './BookBox';
-import { authorizationHeader } from '../../lib/auth';
+import { authorizationHeader, decodeToken } from '../../lib/auth';
 
 class BookIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.deleteBook = this.deleteBook.bind(this);
   }
 
   deleteBook(id) {
-    console.log('deleting page', id);
-    axios.delete(`/api/books/${this.props.match.params.id}`, authorizationHeader())
-      .then(res => {
-        this.setState({ page: res.data});
-      });
+    console.log('deleting book', id);
+    axios.delete(`/api/books/${id}`, authorizationHeader())
+      .then(this.props.history.push('/'));
   }
 
   componentDidMount() {
@@ -24,13 +23,20 @@ class BookIndex extends React.Component {
 
   render() {
     return (
-      <section className="columns is-multiline">
-        <hr />
-        <h1 className="subtitle column is-12">All the books</h1>
-        <hr />
-        <div className="columns column is-12 book-index">
+      <section className="book-index">
+        <h1 className="title book-index-title column is-12">All the books</h1>
+        <br />
+        <div className="columns is-multiline">
           {this.state.books && this.state.books.map(
-            book => <BookBox className="columns" key={book._id} book={book}/>
+            book =>
+              <div className="column is-6 is-centered" key={book._id}>
+                <BookBox className="columns" book={book}/>
+                {(() => {
+                  if (book.author === decodeToken().username) {
+                    return <p className="column is-12 card-footer-item" onClick={() => this.deleteBook(book._id)}>Delete</p>
+                  }
+                })()}
+              </div>
           )}
         </div>
       </section>

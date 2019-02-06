@@ -31,19 +31,17 @@ export default class PageNew extends React.Component {
     const page = this.state.page;
     console.log('what is this', page);
     return(
-      <section>
+      <section className="page-new">
         <div>
-          <h2 className="title is-2">New Page</h2>
-          {isAuthenticated() && <p className="title is-3">Created by {decodeToken().username}</p>}
+          <h2 className="title is-2 has-text-centered">New Page</h2>
+          {isAuthenticated() && <p className="title is-3 has-text-centered">Created by {decodeToken().username}</p>}
           <div>
           </div>
           <NewPageForm
+            className="columns"
             handleChange = {this.handleChange}
             handleSubmit = {this.handleSubmit}
           />
-        </div>
-        <div>
-          <Link to={`/books/${this.props.match.params.id}/pages/${this.props.match.params.pageId}/choices`}>Add choices</Link>
         </div>
       </section>
     );

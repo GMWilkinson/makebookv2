@@ -28,10 +28,23 @@ function NewPageForm(_ref) {
 
   return _react2.default.createElement(
     'form',
-    { onSubmit: handleSubmit },
-    _react2.default.createElement(_FormInput2.default, { name: 'pageName', handleChange: handleChange }),
-    _react2.default.createElement(_FormTextarea2.default, { name: 'text', handleChange: handleChange }),
-    _react2.default.createElement(_FormButton2.default, { text: 'Create' })
+    { className: 'column is-8 is-offset-2', onSubmit: handleSubmit },
+    _react2.default.createElement(_FormInput2.default, { className: '', name: 'pageName', handleChange: handleChange }),
+    _react2.default.createElement(
+      'div',
+      { className: '' },
+      _react2.default.createElement(
+        'label',
+        { className: 'label is-size-5', htmlFor: 'text' },
+        'Text'
+      ),
+      _react2.default.createElement('textarea', { className: 'textarea new-page-textarea', rows: '20', name: 'text', onChange: handleChange })
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: 'button-box has-text-centered' },
+      _react2.default.createElement(_FormButton2.default, { text: 'Create' })
+    )
   );
 }
 

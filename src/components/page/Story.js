@@ -32,13 +32,12 @@ export default class FirstPage extends React.Component {
         {page
           ?
           <section className="columns">
-            <div className="column is-3"></div>
-            <div className="column is-6 page">
+            <div className="column is-6 is-offset-3 page">
               <h1 className="title"></h1>
               <p className="story-text">{page.text}</p>
               <div>
                 {page && page.choices.map(choice =>
-                  <div className="choice-text" key={choice._id} onClick={() => this.handleClick(choice.nextPage)}>
+                  <div className="choice-text-box" key={choice._id} onClick={() => this.handleClick(choice.nextPage)}>
                     <p className="choice-text">{choice.text}</p>
                   </div>
                 )}

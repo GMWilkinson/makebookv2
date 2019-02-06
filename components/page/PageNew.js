@@ -74,35 +74,27 @@ var PageNew = function (_React$Component) {
       console.log('what is this', page);
       return _react2.default.createElement(
         'section',
-        null,
+        { className: 'page-new' },
         _react2.default.createElement(
           'div',
           null,
           _react2.default.createElement(
             'h2',
-            { className: 'title is-2' },
+            { className: 'title is-2 has-text-centered' },
             'New Page'
           ),
           (0, _auth.isAuthenticated)() && _react2.default.createElement(
             'p',
-            { className: 'title is-3' },
+            { className: 'title is-3 has-text-centered' },
             'Created by ',
             (0, _auth.decodeToken)().username
           ),
           _react2.default.createElement('div', null),
           _react2.default.createElement(_NewPageForm2.default, {
+            className: 'columns',
             handleChange: this.handleChange,
             handleSubmit: this.handleSubmit
           })
-        ),
-        _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: '/books/' + this.props.match.params.id + '/pages/' + this.props.match.params.pageId + '/choices' },
-            'Add choices'
-          )
         )
       );
     }

@@ -39,7 +39,7 @@ class UnfinishedBookIndex extends React.Component {
     return (
       <section className="">
         <div className="">
-          <div className="has-text-centered column is-12">
+          <div className="has-text-centered">
             {isAuthenticated() && <p className="title">{username}'s Unfinished Books</p>}
           </div>
           <div>
@@ -48,10 +48,13 @@ class UnfinishedBookIndex extends React.Component {
           <div className="columns is-multiline">
             {this.state.books && this.state.books.map(
               book =>
-                <div className="column box-margin is-6" key={book._id}>
+                <div className="column is-6" key={book._id}>
                   {(() => {
                     if (book.author === username) {
-                      return <div className=""><NewBookBox className="columns" book={book}/>
+                      return <div className=""><NewBookBox handleClick = {this.handleClick} className="columns" book={book}/>
+                        <div className="column is-4 is-offset-4 delete-box has-text-centered">
+                          <p className="" onClick={() => this.deleteBook(book._id)}>Delete</p>
+                        </div>
                       </div>
                     }
                   })()}

@@ -5,7 +5,7 @@ body {
   text-align: right;
 }
 .hero {
-  background-color: papayawhip;
+
 }
 .copyId {
   display: none;
@@ -18,19 +18,23 @@ body {
   height: 300px;
   position: relative;
 }
+.book-index {
+  min-height: 700px;
+}
+.book-index-title {
+  text-align: center;
+  margin-top: 100px;
+}
 .book-card-box {
   height: 300px;
 }
 .page-index-content {
-  overflow: scroll;
+
 }
 .card-footer {
   bottom: 0;
   position: absolute;
   width: 100%;
-}
-.papayawhip {
-  background-color: papayawhip;
 }
 .delete-box {
   transition: background-color 1s;
@@ -38,4 +42,50 @@ body {
 .delete-box:hover {
   background-color: red;
   color: white;
+}
+.book-show {
+  margin-top: 50px;
+}
+.image-box {
+  height: 500px;
+}
+.book-show-title {
+  text-align: center;
+}
+.main-story {
+  // min-height: 700px
+}
+.story-text {
+  font-size: 25px;
+}
+.page {
+  min-height: 500px;
+  margin-top: 100px;
+}
+.choice-text-box {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+}
+.choice-text {
+  font-size: 25px;
+  cursor: alias;
+}
+.button-box {
+  margin: 20px 0 50px 0;
+}
+.page-new {
+
+}
+.new-page-textarea {
+
+}
+@media (max-width: 500px) {
+  .story-text {
+    margin: 10px;
+    font-size: 20px;
+  }
+  .choice-text {
+    font-size: 20px;
+  }
 }

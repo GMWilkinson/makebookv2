@@ -53,34 +53,25 @@ var BookShow = function (_React$Component) {
       var book = this.state.book;
       return _react2.default.createElement(
         'section',
-        { className: 'main-story' },
+        { className: 'book-show' },
         book ? _react2.default.createElement(
           'div',
-          { className: 'columns is-centered' },
+          { className: 'columns is-multiline is-centered' },
           function () {
             console.log('what is', book);
           }(),
           _react2.default.createElement(
             _reactRouterDom.Link,
-            { className: 'column is-half', to: '/books/' + book._id + '/story' },
+            { className: 'column is-12', to: '/books/' + book._id + '/story' },
             _react2.default.createElement(
               'h2',
-              { className: 'shadow white-text title' },
+              { className: 'book-show-title title' },
               book.title
             ),
             _react2.default.createElement(
               'figure',
-              { className: 'image is-2by3' },
-              _react2.default.createElement('img', { src: book.image })
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            null,
-            (0, _auth.isAuthenticated)() && _react2.default.createElement(
-              _reactRouterDom.Link,
-              { to: '/books/' + book._id + '/new-page/first' },
-              'Start creating your book.'
+              { className: 'has-text-centered column is-12' },
+              _react2.default.createElement('img', { className: 'image-box', src: book.image })
             )
           )
         ) : _react2.default.createElement(

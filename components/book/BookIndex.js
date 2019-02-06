@@ -37,46 +37,59 @@ var BookIndex = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (BookIndex.__proto__ || Object.getPrototypeOf(BookIndex)).call(this, props));
 
     _this.state = {};
+    _this.deleteBook = _this.deleteBook.bind(_this);
     return _this;
   }
 
   _createClass(BookIndex, [{
     key: 'deleteBook',
     value: function deleteBook(id) {
-      var _this2 = this;
-
-      console.log('deleting page', id);
-      _axios2.default.delete('/api/books/' + this.props.match.params.id, (0, _auth.authorizationHeader)()).then(function (res) {
-        _this2.setState({ page: res.data });
-      });
+      console.log('deleting book', id);
+      _axios2.default.delete('/api/books/' + id, (0, _auth.authorizationHeader)()).then(this.props.history.push('/'));
     }
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var _this3 = this;
+      var _this2 = this;
 
       _axios2.default.get('/api/books').then(function (result) {
-        return _this3.setState({ books: result.data });
+        return _this2.setState({ books: result.data });
       });
     }
   }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
+
       return _react2.default.createElement(
         'section',
-        { className: 'columns is-multiline' },
-        _react2.default.createElement('hr', null),
+        { className: 'book-index' },
         _react2.default.createElement(
           'h1',
-          { className: 'subtitle column is-12' },
+          { className: 'title book-index-title column is-12' },
           'All the books'
         ),
-        _react2.default.createElement('hr', null),
+        _react2.default.createElement('br', null),
         _react2.default.createElement(
           'div',
-          { className: 'columns column is-12 book-index' },
+          { className: 'columns is-multiline' },
           this.state.books && this.state.books.map(function (book) {
-            return _react2.default.createElement(_BookBox2.default, { className: 'columns', key: book._id, book: book });
+            return _react2.default.createElement(
+              'div',
+              { className: 'column is-6 is-centered', key: book._id },
+              _react2.default.createElement(_BookBox2.default, { className: 'columns', book: book }),
+              function () {
+                if (book.author === (0, _auth.decodeToken)().username) {
+                  return _react2.default.createElement(
+                    'p',
+                    { className: 'column is-12 card-footer-item', onClick: function onClick() {
+                        return _this3.deleteBook(book._id);
+                      } },
+                    'Delete'
+                  );
+                }
+              }()
+            );
           })
         )
       );

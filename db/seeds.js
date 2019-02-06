@@ -53,6 +53,7 @@ const bookData = [{
   isCompleted: false,
   title: 'Uncompleted Book',
   author: 'Grant',
+  blurb: 'This is an unfinished book example, in the future this will be a tutorial on how to make a book yourself.',
   image: 'https://boxshot.com/boxshot/gallery/3d-ebook-cover/book-10.png'
 }, {
   _id: bookIds[1],

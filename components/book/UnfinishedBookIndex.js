@@ -76,6 +76,8 @@ var UnfinishedBookIndex = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this4 = this;
+
       var username = (0, _auth.decodeToken)().username;
       // if (book.author === username)
       console.log('this is', username);
@@ -88,7 +90,7 @@ var UnfinishedBookIndex = function (_React$Component) {
           { className: '' },
           _react2.default.createElement(
             'div',
-            { className: 'has-text-centered column is-12' },
+            { className: 'has-text-centered' },
             (0, _auth.isAuthenticated)() && _react2.default.createElement(
               'p',
               { className: 'title' },
@@ -107,13 +109,24 @@ var UnfinishedBookIndex = function (_React$Component) {
             this.state.books && this.state.books.map(function (book) {
               return _react2.default.createElement(
                 'div',
-                { className: 'column box-margin is-6', key: book._id },
+                { className: 'column is-6', key: book._id },
                 function () {
                   if (book.author === username) {
                     return _react2.default.createElement(
                       'div',
                       { className: '' },
-                      _react2.default.createElement(_NewBookBox2.default, { className: 'columns', book: book })
+                      _react2.default.createElement(_NewBookBox2.default, { handleClick: _this4.handleClick, className: 'columns', book: book }),
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'column is-4 is-offset-4 delete-box has-text-centered' },
+                        _react2.default.createElement(
+                          'p',
+                          { className: '', onClick: function onClick() {
+                              return _this4.deleteBook(book._id);
+                            } },
+                          'Delete'
+                        )
+                      )
                     );
                   }
                 }()

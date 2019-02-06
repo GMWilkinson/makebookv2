@@ -10,11 +10,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = require('react-router-dom');
 
+var _auth = require('../../lib/auth');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function NewBookBox(_ref) {
-  var _this = this;
-
   var book = _ref.book;
 
   return _react2.default.createElement(
@@ -61,20 +61,13 @@ function NewBookBox(_ref) {
         { className: 'card-footer' },
         _react2.default.createElement(
           _reactRouterDom.Link,
-          { className: 'column is-4 card-footer-item', to: '/books/' + book._id },
+          { className: 'column is-6 card-footer-item', to: '/books/' + book._id },
           'Read'
         ),
         _react2.default.createElement(
           _reactRouterDom.Link,
-          { className: 'column is-4 card-footer-item', to: '/books/' + book._id + '/edit' },
+          { className: 'column is-6 card-footer-item', to: '/books/' + book._id + '/edit' },
           'Edit'
-        ),
-        _react2.default.createElement(
-          'p',
-          { className: 'column is-4 card-footer-item delete-box', onClick: function onClick() {
-              return _this.deleteBook(book._id);
-            } },
-          'Delete'
         )
       )
     )

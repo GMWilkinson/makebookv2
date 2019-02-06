@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { decodeToken } from '../../lib/auth';
 
 function NewBookBox({ book }) {
   return (
@@ -15,9 +16,8 @@ function NewBookBox({ book }) {
           </figure>
         </Link>
         <footer className="card-footer">
-          <Link className="column is-4 card-footer-item" to={`/books/${book._id}`}>Read</Link>
-          <Link className="column is-4 card-footer-item" to={`/books/${book._id}/edit`}>Edit</Link>
-          <p className="column is-4 card-footer-item delete-box" onClick={() => this.deleteBook(book._id)}>Delete</p>
+          <Link className="column is-6 card-footer-item" to={`/books/${book._id}`}>Read</Link>
+          <Link className="column is-6 card-footer-item" to={`/books/${book._id}/edit`}>Edit</Link>
         </footer>
       </article>
     </div>

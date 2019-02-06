@@ -19,22 +19,19 @@ export default class BookShow extends React.Component {
   render() {
     const book = this.state.book;
     return (
-      <section className="main-story">
+      <section className="book-show">
         {book
           ?
-          <div className="columns is-centered">
+          <div className="columns is-multiline is-centered">
             {(() => {
               console.log('what is', book);
             })()}
-            <Link className="column is-half" to={`/books/${book._id}/story`}>
-              <h2 className="shadow white-text title">{ book.title }</h2>
-              <figure className="image is-2by3">
-                <img src={ book.image } />
+            <Link className="column is-12" to={`/books/${book._id}/story`}>
+              <h2 className="book-show-title title">{ book.title }</h2>
+              <figure className="has-text-centered column is-12">
+                <img className="image-box" src={ book.image } />
               </figure>
             </Link>
-            <div>
-              {isAuthenticated() && <Link to={`/books/${book._id}/new-page/first`}>Start creating your book.</Link>}
-            </div>
           </div>
           :
           <p>Please wait...</p>}
