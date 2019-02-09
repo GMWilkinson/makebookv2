@@ -27,7 +27,7 @@ function HintBox() {
           { className: 'container has-text-centered' },
           _react2.default.createElement(
             'p',
-            { className: 'title' },
+            { className: 'title hints' },
             (0, _randomHint.hintRandomizer)()
           )
         )

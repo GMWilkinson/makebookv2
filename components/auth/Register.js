@@ -59,54 +59,58 @@ var AuthRegister = function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'form',
-        { onSubmit: this.handleSubmit },
+        'section',
+        { className: 'register column is-vcentered is-4 is-offset-4' },
         _react2.default.createElement(
-          'div',
-          { className: 'field' },
-          _react2.default.createElement('input', {
-            className: 'input',
-            name: 'username',
-            placeholder: 'Username',
-            onChange: this.handleChange
-          })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'field' },
-          _react2.default.createElement('input', {
-            className: 'input',
-            name: 'email',
-            placeholder: 'Email',
-            onChange: this.handleChange
-          })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'field' },
-          _react2.default.createElement('input', {
-            type: 'password',
-            className: 'input',
-            name: 'password',
-            placeholder: 'Password',
-            onChange: this.handleChange
-          })
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'field' },
-          _react2.default.createElement('input', {
-            type: 'password',
-            className: 'input',
-            name: 'passwordConfirmation',
-            placeholder: 'Password confirmation',
-            onChange: this.handleChange
-          })
-        ),
-        _react2.default.createElement(
-          'button',
-          { className: 'button is-primary' },
-          'Submit'
+          'form',
+          { onSubmit: this.handleSubmit, className: 'column is-4 is-offset-4' },
+          _react2.default.createElement(
+            'div',
+            { className: 'field' },
+            _react2.default.createElement('input', {
+              className: 'input',
+              name: 'username',
+              placeholder: 'Username',
+              onChange: this.handleChange
+            })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'field' },
+            _react2.default.createElement('input', {
+              className: 'input',
+              name: 'email',
+              placeholder: 'Email',
+              onChange: this.handleChange
+            })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'field' },
+            _react2.default.createElement('input', {
+              type: 'password',
+              className: 'input',
+              name: 'password',
+              placeholder: 'Password',
+              onChange: this.handleChange
+            })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'field' },
+            _react2.default.createElement('input', {
+              type: 'password',
+              className: 'input',
+              name: 'passwordConfirmation',
+              placeholder: 'Password confirmation',
+              onChange: this.handleChange
+            })
+          ),
+          _react2.default.createElement(
+            'button',
+            { className: 'button is-primary' },
+            'Submit'
+          )
         )
       );
     }

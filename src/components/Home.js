@@ -8,15 +8,14 @@ class Home extends React.Component {
 
   render() {
     return (
-      <main className="home-main">
-        <div className="title is-1 home-title">
-          <h1>Welcome to MakeBook</h1>
+      <main className="home-main columns is-multiline">
+        <div className="column is-12">
+          <h1 className="title home-title has-text-centered">Welcome to MakeBook</h1>
         </div>
-        <section className="">
-          <article className="home-text is-vcentered">
+        <section className="column is-6 is-offset-3">
+          <article className="home-text content has-text-centered">
             <p>Do you remember game-books?</p>
             <p>With this app you can create your own!</p>
-            <br />
             <p>Register or login to be able to create your own books.</p>
             <p>If not you can always read the books that others have created.</p>
           </article>

@@ -28,7 +28,7 @@ function BookBox(_ref) {
         { className: 'card-header' },
         _react2.default.createElement(
           'h3',
-          { className: 'is-subtitle is-3' },
+          { className: 'is-subtitle book-subtitle is-3' },
           _react2.default.createElement(
             'strong',
             null,
@@ -36,7 +36,8 @@ function BookBox(_ref) {
           ),
           ' By ',
           book.author
-        )
+        ),
+        _react2.default.createElement('p', null)
       ),
       _react2.default.createElement(
         _reactRouterDom.Link,

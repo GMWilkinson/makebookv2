@@ -24,10 +24,11 @@ export default class BookNew extends React.Component {
     return(
       <section>
         <h2 className="title is-2">Create your own story!</h2>
-        {isAuthenticated() && <p className="title is-3">Created by {decodeToken().username}</p>}
+        {isAuthenticated() && <p className="title has-text-centered is-3">Created by {decodeToken().username}</p>}
         <NewBookForm
           handleChange = {this.handleChange}
           handleSubmit = {this.handleSubmit}
+          className="columns"
         />
       </section>
     );

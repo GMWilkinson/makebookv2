@@ -26,15 +26,25 @@ function NewBookForm(_ref) {
 
   return _react2.default.createElement(
     'form',
-    { onSubmit: handleSubmit },
+    { className: 'column is-4 is-offset-4', onSubmit: handleSubmit },
     _react2.default.createElement(_FormInput2.default, { name: 'title', type: 'text', handleChange: handleChange }),
     _react2.default.createElement(
       'span',
       null,
       'Your Author name must be ',
-      (0, _auth.decodeToken)().username
+      _react2.default.createElement(
+        'strong',
+        null,
+        (0, _auth.decodeToken)().username
+      )
     ),
     _react2.default.createElement(_FormInput2.default, { name: 'author', type: 'text', handleChange: handleChange }),
+    _react2.default.createElement(_FormInput2.default, { className: 'blurb-input', name: 'blurb', type: 'text', handleChange: handleChange }),
+    _react2.default.createElement(
+      'label',
+      { htmlFor: 'blurb' },
+      'Don\'t worry, you can always add/change this later'
+    ),
     _react2.default.createElement(_FormInput2.default, { name: 'image', type: 'text', handleChange: handleChange }),
     _react2.default.createElement(_FormButton2.default, { text: 'Create Book' })
   );

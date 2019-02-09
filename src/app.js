@@ -20,6 +20,7 @@ import AuthLogin from './components/auth/Login';
 import Profile from './components/auth/Profile';
 import Footer from './components/Footer';
 import Home from './components/Home';
+import Tutorial from './components/book/Tutorial';
 
 import 'bulma';
 import './scss/style.scss';
@@ -35,12 +36,14 @@ class App extends React.Component {
             <Switch>
               <Route exact path='/' component={Home}/>
               <Route exact path='/books' component={BookIndex}/>
+              <Route path='/tutorial' component={Tutorial}/>
               <Route path='/books/:id/pages/new' component={PageNew}/>
               <Route path='/books/:bookId/pages/page-display' component={PageDisplay}/>
+              <Route path='/books/:bookId/pages/:pageId/edit/page' component={Edit}/>
               <Route path='/books/:bookId/pages/:pageId/choices' component={Choices}/>
               <Route path='/books/:id/pages/first' component={NewFirstPage}/>
               <Route path='/books/:id/pages/:pageId' component={PageShow}/>
-              <Route path='/books/:bookId/pages/:pageId/edit' component={Edit}/>
+
               <Route path='/books/:id/story' component={Story}/>
               <Route path='/books/:id/pages' component={PageIndex}/>
               <Route exact path='/books/new' component={BookNew}/>

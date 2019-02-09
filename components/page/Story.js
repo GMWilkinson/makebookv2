@@ -99,7 +99,7 @@ var FirstPage = function (_React$Component) {
         ) : _react2.default.createElement(
           'p',
           null,
-          'Please wait...'
+          'This book has no pages...'
         )
       );
     }

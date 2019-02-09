@@ -79,18 +79,16 @@ var UnfinishedBookIndex = function (_React$Component) {
       var _this4 = this;
 
       var username = (0, _auth.decodeToken)().username;
-      // if (book.author === username)
       console.log('this is', username);
-      console.log('user/author', _auth.isAuthenticated);
       return _react2.default.createElement(
         'section',
-        { className: '' },
+        { className: 'book-index' },
         _react2.default.createElement(
           'div',
           { className: '' },
           _react2.default.createElement(
             'div',
-            { className: 'has-text-centered' },
+            { className: 'has-text-centered book-index-title' },
             (0, _auth.isAuthenticated)() && _react2.default.createElement(
               'p',
               { className: 'title' },
@@ -98,23 +96,19 @@ var UnfinishedBookIndex = function (_React$Component) {
               '\'s Unfinished Books'
             )
           ),
-          _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(_HintBox2.default, null)
-          ),
+          _react2.default.createElement(_HintBox2.default, null),
           _react2.default.createElement(
             'div',
             { className: 'columns is-multiline' },
             this.state.books && this.state.books.map(function (book) {
               return _react2.default.createElement(
                 'div',
-                { className: 'column is-6', key: book._id },
+                { className: 'column is-6 book-box', id: 'test', key: book._id },
                 function () {
                   if (book.author === username) {
                     return _react2.default.createElement(
                       'div',
-                      { className: '' },
+                      { className: 'books' },
                       _react2.default.createElement(_NewBookBox2.default, { handleClick: _this4.handleClick, className: 'columns', book: book }),
                       _react2.default.createElement(
                         'div',

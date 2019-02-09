@@ -47,7 +47,7 @@ export default class FirstPage extends React.Component {
           </section>
 
           :
-          <p>Please wait...</p>}
+          <p>This book has no pages...</p>}
       </section>
     );
   }

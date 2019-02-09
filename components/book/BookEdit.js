@@ -14,6 +14,10 @@ var _axios = require('axios');
 
 var _axios2 = _interopRequireDefault(_axios);
 
+var _HintBox = require('../page/HintBox');
+
+var _HintBox2 = _interopRequireDefault(_HintBox);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -77,127 +81,127 @@ var BookEdit = function (_React$Component) {
       console.log('book is', book);
       return _react2.default.createElement(
         'section',
-        { className: 'main-story' },
+        { className: '' },
+        _react2.default.createElement(_HintBox2.default, null),
         book ? _react2.default.createElement(
-          'section',
-          null,
-          function () {
-            console.log('what is', _this4);
-          }(),
+          'article',
+          { className: 'columns' },
           _react2.default.createElement(
             'div',
-            { key: book._id },
+            { className: 'column is-4 is-offset-4' },
             _react2.default.createElement(
               'div',
-              { className: 'media-content' },
+              { key: book._id },
               _react2.default.createElement(
-                'div',
-                { className: 'field' },
-                _react2.default.createElement(
-                  'p',
-                  { className: 'control' },
-                  _react2.default.createElement('input', { className: 'input',
-                    name: 'title',
-                    value: this.state.title || '' + book.title,
-                    onChange: this.handleChange
-                  })
-                )
-              )
-            ),
-            _react2.default.createElement(
-              'h2',
-              null,
-              'Author'
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'media-content' },
-              _react2.default.createElement(
-                'div',
-                { className: 'field' },
-                _react2.default.createElement(
-                  'p',
-                  { className: 'control' },
-                  _react2.default.createElement('input', { className: 'input',
-                    name: 'author',
-                    value: this.state.author || '' + book.author,
-                    onChange: this.handleChange
-                  })
-                )
-              )
-            ),
-            _react2.default.createElement(
-              'h2',
-              null,
-              'Add a blurb here'
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'media-content' },
-              _react2.default.createElement(
-                'div',
-                { className: 'field' },
-                _react2.default.createElement(
-                  'p',
-                  { className: 'control' },
-                  _react2.default.createElement('textarea', { className: 'textarea',
-                    name: 'blurb',
-                    value: this.state.blurb || '' + book.blurb,
-                    onChange: this.handleChange
-                  })
-                )
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'media-content' },
-              _react2.default.createElement(
-                'div',
-                { className: 'field' },
+                'section',
+                { className: 'media-content' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'control' },
+                  { className: 'field' },
                   _react2.default.createElement(
-                    'label',
-                    { htmlFor: 'isCompleted' },
+                    'div',
+                    { className: 'control' },
+                    _react2.default.createElement(
+                      'label',
+                      { htmlFor: 'title' },
+                      'Title'
+                    ),
+                    _react2.default.createElement('input', { className: 'input',
+                      name: 'title',
+                      value: this.state.title || '' + book.title,
+                      onChange: this.handleChange
+                    })
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'section',
+                { className: 'media-content' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'field' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'control' },
+                    _react2.default.createElement(
+                      'label',
+                      { htmlFor: 'author' },
+                      'Author'
+                    ),
+                    _react2.default.createElement('input', { className: 'input',
+                      name: 'author',
+                      value: this.state.author || '' + book.author,
+                      onChange: this.handleChange
+                    })
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'section',
+                { className: 'media-content' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'field' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'control' },
+                    _react2.default.createElement(
+                      'label',
+                      { htmlFor: 'blurb' },
+                      'Blurb'
+                    ),
+                    _react2.default.createElement('textarea', { className: 'textarea',
+                      name: 'blurb',
+                      value: this.state.blurb || '' + book.blurb,
+                      onChange: this.handleChange
+                    })
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'section',
+                { className: 'media-content' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'field' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'control' },
                     _react2.default.createElement(
                       'h2',
                       null,
                       'Is the Book ready for all to read?'
                     ),
                     _react2.default.createElement(
-                      'p',
-                      null,
-                      'Type ',
-                      _react2.default.createElement(
-                        'strong',
-                        null,
-                        'true'
-                      ),
-                      ' in the box if ready to publish. The book will then be available on the finished books page!'
-                    ),
-                    _react2.default.createElement('textarea', { className: 'textarea',
-                      name: 'isCompleted',
-                      value: this.state.isCompleted || '' + book.isCompleted,
-                      onChange: this.handleChange
-                    })
+                      'label',
+                      { htmlFor: 'isCompleted' },
+                      'Check here to publish-',
+                      _react2.default.createElement('input', { type: 'radio',
+                        name: 'isCompleted',
+                        value: this.state.isCompleted || '' + book.isCompleted,
+                        onChange: function onChange(_ref) {
+                          var value = _ref.target.value;
+                          return _this4.setState({ value: value, isCompleted: true });
+                        }
+                      })
+                    )
                   )
                 )
-              )
-            ),
-            _react2.default.createElement(
-              'nav',
-              { className: 'level' },
+              ),
               _react2.default.createElement(
-                'div',
-                { className: 'level-left' },
+                'nav',
+                { className: 'level' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'level-item', onClick: this.handleSubmit },
+                  { className: 'level-left' },
                   _react2.default.createElement(
-                    'a',
-                    { className: 'button is-info' },
-                    'Save Changes'
+                    'div',
+                    { className: 'level-item', onClick: this.handleSubmit },
+                    _react2.default.createElement(
+                      'a',
+                      { className: 'button is-info' },
+                      'Save Changes'
+                    )
                   )
                 )
               )

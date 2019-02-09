@@ -35,22 +35,22 @@ var Home = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         "main",
-        { className: "home-main" },
+        { className: "home-main columns is-multiline" },
         _react2.default.createElement(
           "div",
-          { className: "title is-1 home-title" },
+          { className: "column is-12" },
           _react2.default.createElement(
             "h1",
-            null,
+            { className: "title home-title has-text-centered" },
             "Welcome to MakeBook"
           )
         ),
         _react2.default.createElement(
           "section",
-          { className: "" },
+          { className: "column is-6 is-offset-3" },
           _react2.default.createElement(
             "article",
-            { className: "home-text is-vcentered" },
+            { className: "home-text content has-text-centered" },
             _react2.default.createElement(
               "p",
               null,
@@ -61,7 +61,6 @@ var Home = function (_React$Component) {
               null,
               "With this app you can create your own!"
             ),
-            _react2.default.createElement("br", null),
             _react2.default.createElement(
               "p",
               null,

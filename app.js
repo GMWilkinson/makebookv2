@@ -88,6 +88,10 @@ var _Home = require('./components/Home');
 
 var _Home2 = _interopRequireDefault(_Home);
 
+var _Tutorial = require('./components/book/Tutorial');
+
+var _Tutorial2 = _interopRequireDefault(_Tutorial);
+
 require('bulma');
 
 require('./scss/style.scss');
@@ -127,12 +131,13 @@ var App = function (_React$Component) {
               null,
               _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Home2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/books', component: _BookIndex2.default }),
+              _react2.default.createElement(_reactRouterDom.Route, { path: '/tutorial', component: _Tutorial2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { path: '/books/:id/pages/new', component: _PageNew2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { path: '/books/:bookId/pages/page-display', component: _PageDisplay2.default }),
+              _react2.default.createElement(_reactRouterDom.Route, { path: '/books/:bookId/pages/:pageId/edit/page', component: _Edit2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { path: '/books/:bookId/pages/:pageId/choices', component: _Choices2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { path: '/books/:id/pages/first', component: _NewFirstPage2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { path: '/books/:id/pages/:pageId', component: _PageShow2.default }),
-              _react2.default.createElement(_reactRouterDom.Route, { path: '/books/:bookId/pages/:pageId/edit', component: _Edit2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { path: '/books/:id/story', component: _Story2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { path: '/books/:id/pages', component: _PageIndex2.default }),
               _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/books/new', component: _New2.default }),

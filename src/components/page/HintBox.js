@@ -8,7 +8,7 @@ function HintBox() {
       <div className="hero">
         <div className="hero-body">
           <div className="container has-text-centered">
-            <p className="title">{hintRandomizer()}</p>
+            <p className="title hints">{hintRandomizer()}</p>
           </div>
         </div>
       </div>

@@ -173,14 +173,13 @@ var PageIndex = function (_React$Component) {
                           className: 'copyId' }),
                         _react2.default.createElement(
                           _reactCopyToClipboard.CopyToClipboard,
-                          { text: page._id,
-                            onCopy: function onCopy() {
+                          { text: page._id, className: 'copy column is-12', onCopy: function onCopy() {
                               return _this5.setState({ copied: true });
                             } },
                           _react2.default.createElement(
                             'button',
-                            null,
-                            'Click here to copy this page\'s unique id! Then paste it in the box next to the choice text to link this page to the choice.'
+                            { className: 'button' },
+                            'Copy this ID.'
                           )
                         )
                       )
@@ -205,7 +204,7 @@ var PageIndex = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                       _reactRouterDom.Link,
-                      { to: '/books/' + book + '/pages/' + page._id + '/edit', className: 'card-footer-item' },
+                      { to: '/books/' + book + '/pages/' + page._id + '/edit/page', className: 'card-footer-item' },
                       'Edit'
                     ),
                     _react2.default.createElement(

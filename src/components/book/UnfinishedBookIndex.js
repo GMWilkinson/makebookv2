@@ -33,25 +33,21 @@ class UnfinishedBookIndex extends React.Component {
 
   render() {
     const username = decodeToken().username;
-    // if (book.author === username)
     console.log('this is', username);
-    console.log('user/author', isAuthenticated)
     return (
-      <section className="">
+      <section className="book-index">
         <div className="">
-          <div className="has-text-centered">
+          <div className="has-text-centered book-index-title">
             {isAuthenticated() && <p className="title">{username}'s Unfinished Books</p>}
           </div>
-          <div>
-            <HintBox />
-          </div>
+          <HintBox />
           <div className="columns is-multiline">
             {this.state.books && this.state.books.map(
               book =>
-                <div className="column is-6" key={book._id}>
+                <div className="column is-6 book-box" id="test" key={book._id}>
                   {(() => {
                     if (book.author === username) {
-                      return <div className=""><NewBookBox handleClick = {this.handleClick} className="columns" book={book}/>
+                      return <div className="books"><NewBookBox handleClick = {this.handleClick} className="columns" book={book}/>
                         <div className="column is-4 is-offset-4 delete-box has-text-centered">
                           <p className="" onClick={() => this.deleteBook(book._id)}>Delete</p>
                         </div>

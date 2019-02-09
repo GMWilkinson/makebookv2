@@ -81,9 +81,8 @@ class PageIndex extends React.Component {
                           <input value={page._id}
                             onChange={({target: {value}}) => this.setState({value, copied: false})}
                             className="copyId" />
-                          <CopyToClipboard text={page._id}
-                            onCopy={() => this.setState({copied: true})}>
-                            <button>Click here to copy this page's unique id! Then paste it in the box next to the choice text to link this page to the choice.</button>
+                          <CopyToClipboard text={page._id} className="copy column is-12" onCopy={() => this.setState({copied: true})}>
+                            <button className="button">Copy this ID.</button>
                           </CopyToClipboard>
                         </div>
                       </div>
@@ -93,7 +92,7 @@ class PageIndex extends React.Component {
                     </div>
                     <footer className="card-footer">
                       <Link to={`/books/${book}/pages/${page._id}`} className="card-footer-item">Add Choices</Link>
-                      <Link to={`/books/${book}/pages/${page._id}/edit`} className="card-footer-item">Edit</Link>
+                      <Link to={`/books/${book}/pages/${page._id}/edit/page`} className="card-footer-item">Edit</Link>
                       <a className="card-footer-item" onClick={() => this.deletePage(page._id)}>Delete</a>
                     </footer>
                   </div>

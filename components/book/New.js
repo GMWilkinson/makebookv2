@@ -69,13 +69,14 @@ var BookNew = function (_React$Component) {
         ),
         (0, _auth.isAuthenticated)() && _react2.default.createElement(
           'p',
-          { className: 'title is-3' },
+          { className: 'title has-text-centered is-3' },
           'Created by ',
           (0, _auth.decodeToken)().username
         ),
         _react2.default.createElement(_NewBookForm2.default, {
           handleChange: this.handleChange,
-          handleSubmit: this.handleSubmit
+          handleSubmit: this.handleSubmit,
+          className: 'columns'
         })
       );
     }

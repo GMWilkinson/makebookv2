@@ -27,8 +27,9 @@ class Header extends React.Component {
         </div>
         <div className="navbar-end">
           <Link className="navbar-item page-header is-vcentered" to="/books">Finished Books</Link>
-          {isAuthenticated() && <Link className="navbar-item page-header" to="/books/new">Create Your Own Story!</Link>}
+          {isAuthenticated() && <Link className="navbar-item page-header" to="/books/new">Create a New Story!</Link>}
           {isAuthenticated() && <Link className="navbar-item page-header" to="/books/unfinished">Your Unfinished Books</Link>}
+          {isAuthenticated() && <Link className="navbar-item page-header" to="/tutorial">Tutorial</Link>}
           {!isAuthenticated() && <Link className="navbar-item page-header" to="/register">Register</Link>}
           {!isAuthenticated() && <Link className="navbar-item page-header" to="/login">Login</Link>}
           {isAuthenticated() && <a onClick={this.handleLogout} className="navbar-item page-header" to="/login">Logout</a>}

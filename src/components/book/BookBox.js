@@ -8,7 +8,8 @@ function BookBox({ book }) {
     <div className="column is-12">
       <article className="card book-card-box">
         <div className="card-header">
-          <h3 className="is-subtitle is-3"><strong>{book.title}</strong> By {book.author}</h3>
+          <h3 className="is-subtitle book-subtitle is-3"><strong>{book.title}</strong> By {book.author}</h3>
+          <p></p>
         </div>
         <Link className="column" to={`/books/${book._id}`}>
           <figure className="content has-text-centered">
