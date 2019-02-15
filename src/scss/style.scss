@@ -29,7 +29,8 @@ body {
   font-size: 40px;
 }
 .copy {
-  width: 100%;
+  width: 1500px;
+  padding: 100%;
 }
 .page-card-box {
   height: 300px;
@@ -53,7 +54,7 @@ body {
   height: 300px;
 }
 .page-index-content {
-  height: 140px;
+  // height: 140px;
   overflow: scroll;
 }
 .card-footer {
@@ -87,8 +88,23 @@ body {
   min-height: 500px;
   margin-top: 100px;
 }
-.button {
-  width: 100%;
+.page-index {
+  min-height: 600px;
+}
+.id-button {
+  background-color: rgba(0,0,0,0.8);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 343px;
+  margin: auto;
+}
+.id-button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .choice-text-box {
   text-align: center;
@@ -118,6 +134,9 @@ body {
   min-height: 0px;
 }
 @media (max-width: 500px) {
+  body {
+    margin: 10px;
+  }
   .story-text {
     margin: 10px;
     font-size: 20px;
@@ -143,5 +162,9 @@ body {
   }
   .book-index-title {
     margin-top: 40px;
+  }
+  .id-button {
+    width: 100%;
+    margin: auto;
   }
 }

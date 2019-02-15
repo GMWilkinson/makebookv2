@@ -81,11 +81,15 @@ var BookIndex = function (_React$Component) {
               function () {
                 if (book.author === (0, _auth.decodeToken)().username) {
                   return _react2.default.createElement(
-                    'p',
-                    { className: 'column is-12 card-footer-item', onClick: function onClick() {
-                        return _this3.deleteBook(book._id);
-                      } },
-                    'Delete'
+                    'div',
+                    { className: 'column is-4 is-offset-4 delete-box has-text-centered' },
+                    _react2.default.createElement(
+                      'p',
+                      { className: 'column is-12 card-footer-item', onClick: function onClick() {
+                          return _this3.deleteBook(book._id);
+                        } },
+                      'Delete'
+                    )
                   );
                 }
               }()

@@ -9,10 +9,10 @@ class Tutorial extends React.Component {
   render() {
     return (
       <section className="">
-        <h1 className="title">Tutorial</h1>
+        <h1 className="title is-2 has-text-centered">Tutorial</h1>
         <article className="columns">
           <div className="column is-8 is-offset-2">
-            <h2>Creating a Book</h2>
+            <h2 className="subtitle">Creating a Book</h2>
             <p className="tutorial-text">
               To create a new book you must first click on the
               <strong>Create a new story</strong> button in the navbar at the
@@ -39,7 +39,7 @@ class Tutorial extends React.Component {
         </article>
         <article>
           <div className="column is-8 is-offset-2">
-            <h2>Creating pages</h2>
+            <h2 className="subtitle">Creating pages</h2>
             <p>
               Now that you have a book, it's time to fill it up.
               After creating the book itself you will be taken to the <strong>Unfinished Books</strong> page.
@@ -56,7 +56,7 @@ class Tutorial extends React.Component {
             <p>Next, before adding choices to a page you need a page for it to connect to so create your next page.</p>
             <p>Now that you have two pages it's time to attach them with choices.</p>
             <hr />
-            <h2>Adding Choices</h2>
+            <h2 className="subtitle">Adding Choices</h2>
             <p>
               <strong>The first step:</strong> Click on the <strong>Copy this ID</strong> button on the page you wish to attach.
               You will get a notice telling you that the page ID is copied.
@@ -73,7 +73,7 @@ class Tutorial extends React.Component {
               Even if it only says. Go back to start.
             </p>
             <hr />
-            <h2>Editing</h2>
+            <h2 className="subtitle">Editing</h2>
             <p>
               You can edit the details of a book or a page. On either the Page Index or the Unfinished Books Index.
             </p>
@@ -92,7 +92,7 @@ class Tutorial extends React.Component {
               If the Author name does not match your Username, you will no longer be able to see that book unless you change account.</strong>
             </p>
             <hr />
-            <h2>Deleting</h2>
+            <h2 className="subtitle">Deleting</h2>
             <p>
               You can delete any page except for the first one. Make sure that you definitely need to delete it and not just edit it, as you will not be able to
               get it back. You can also delete your book. This will delete everything, including all of the pages.

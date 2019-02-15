@@ -18,7 +18,7 @@ class Profile extends React.Component {
     const username = decodeToken().username;
     console.log('username is', username)
     return (
-      <section>
+      <section className="page">
         <div>
           {isAuthenticated() && <h1>{decodeToken().username}s Profile <img className="image is-64x64" src={decodeToken().image}/></h1>}
         </div>

@@ -58,7 +58,7 @@ var Profile = function (_React$Component) {
       console.log('username is', username);
       return _react2.default.createElement(
         'section',
-        null,
+        { className: 'page' },
         _react2.default.createElement(
           'div',
           null,

@@ -101,7 +101,7 @@ var PageIndex = function (_React$Component) {
       console.log('page is', page);
       return _react2.default.createElement(
         'section',
-        { className: 'columns' },
+        { className: 'columns page-index' },
         page ? _react2.default.createElement(
           'div',
           { className: 'column is-12' },
@@ -155,15 +155,6 @@ var PageIndex = function (_React$Component) {
                       null,
                       _react2.default.createElement(
                         'div',
-                        { className: 'subtitle has-text-centered' },
-                        _react2.default.createElement(
-                          'h2',
-                          null,
-                          page.pageName
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'div',
                         null,
                         _react2.default.createElement('input', { value: page._id,
                           onChange: function onChange(_ref2) {
@@ -173,13 +164,15 @@ var PageIndex = function (_React$Component) {
                           className: 'copyId' }),
                         _react2.default.createElement(
                           _reactCopyToClipboard.CopyToClipboard,
-                          { text: page._id, className: 'copy column is-12', onCopy: function onCopy() {
+                          { text: page._id, className: 'id-button', onCopy: function onCopy() {
                               return _this5.setState({ copied: true });
                             } },
                           _react2.default.createElement(
                             'button',
-                            { className: 'button' },
-                            'Copy this ID.'
+                            { className: '' },
+                            'Connect ',
+                            page.pageName,
+                            ' ID.'
                           )
                         )
                       )

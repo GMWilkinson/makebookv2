@@ -67,7 +67,7 @@ var FirstPage = function (_React$Component) {
         { className: 'main-story' },
         page ? _react2.default.createElement(
           'section',
-          { className: 'columns' },
+          { className: 'columns', id: 'pageTop' },
           _react2.default.createElement(
             'div',
             { className: 'column is-6 is-offset-3 page' },
@@ -87,8 +87,8 @@ var FirstPage = function (_React$Component) {
                       return _this4.handleClick(choice.nextPage);
                     } },
                   _react2.default.createElement(
-                    'p',
-                    { className: 'choice-text' },
+                    'a',
+                    { href: '#pageTop', className: 'choice-text' },
                     choice.text
                   )
                 );

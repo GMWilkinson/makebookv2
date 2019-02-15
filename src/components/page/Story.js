@@ -31,14 +31,14 @@ export default class FirstPage extends React.Component {
       <section className="main-story">
         {page
           ?
-          <section className="columns">
+          <section className="columns" id="pageTop">
             <div className="column is-6 is-offset-3 page">
               <h1 className="title"></h1>
               <p className="story-text">{page.text}</p>
               <div>
                 {page && page.choices.map(choice =>
                   <div className="choice-text-box" key={choice._id} onClick={() => this.handleClick(choice.nextPage)}>
-                    <p className="choice-text">{choice.text}</p>
+                    <a href="#pageTop" className="choice-text">{choice.text}</a>
                   </div>
                 )}
               </div>

@@ -38,7 +38,7 @@ var Tutorial = function (_React$Component) {
         { className: "" },
         _react2.default.createElement(
           "h1",
-          { className: "title" },
+          { className: "title is-2 has-text-centered" },
           "Tutorial"
         ),
         _react2.default.createElement(
@@ -49,7 +49,7 @@ var Tutorial = function (_React$Component) {
             { className: "column is-8 is-offset-2" },
             _react2.default.createElement(
               "h2",
-              null,
+              { className: "subtitle" },
               "Creating a Book"
             ),
             _react2.default.createElement(
@@ -124,7 +124,7 @@ var Tutorial = function (_React$Component) {
             { className: "column is-8 is-offset-2" },
             _react2.default.createElement(
               "h2",
-              null,
+              { className: "subtitle" },
               "Creating pages"
             ),
             _react2.default.createElement(
@@ -186,7 +186,7 @@ var Tutorial = function (_React$Component) {
             _react2.default.createElement("hr", null),
             _react2.default.createElement(
               "h2",
-              null,
+              { className: "subtitle" },
               "Adding Choices"
             ),
             _react2.default.createElement(
@@ -236,7 +236,7 @@ var Tutorial = function (_React$Component) {
             _react2.default.createElement("hr", null),
             _react2.default.createElement(
               "h2",
-              null,
+              { className: "subtitle" },
               "Editing"
             ),
             _react2.default.createElement(
@@ -282,7 +282,7 @@ var Tutorial = function (_React$Component) {
             _react2.default.createElement("hr", null),
             _react2.default.createElement(
               "h2",
-              null,
+              { className: "subtitle" },
               "Deleting"
             ),
             _react2.default.createElement(

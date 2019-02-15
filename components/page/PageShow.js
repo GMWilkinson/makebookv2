@@ -14,7 +14,9 @@ var _axios = require('axios');
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _auth = require('../../lib/auth');
+var _HintBox = require('./HintBox');
+
+var _HintBox2 = _interopRequireDefault(_HintBox);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -92,105 +94,97 @@ var PageShow = function (_React$Component) {
       console.log('this is this', this.props.match.params);
       return _react2.default.createElement(
         'section',
-        null,
+        { className: 'page' },
         page ? _react2.default.createElement(
-          'div',
+          'article',
           null,
           _react2.default.createElement(
-            'div',
-            null,
-            _react2.default.createElement(
-              'h1',
-              null,
-              'Page'
-            ),
-            _react2.default.createElement(
-              'h2',
-              null,
-              page.pageName
-            ),
-            _react2.default.createElement(
-              'h2',
-              null,
-              page.text
-            ),
-            page && page.choices.map(function (choice) {
-              return _react2.default.createElement(
-                'div',
-                { className: 'column is-3', key: choice._id },
-                _react2.default.createElement(
-                  'h2',
-                  null,
-                  'Choice: ',
-                  choice.text
-                )
-              );
-            })
+            'h1',
+            { className: 'title has-text-centered' },
+            'Add Choices'
           ),
+          _react2.default.createElement(_HintBox2.default, null),
           _react2.default.createElement(
-            'article',
-            { className: 'media' },
-            _react2.default.createElement(
-              'figure',
-              { className: 'media-left' },
-              _react2.default.createElement(
-                'p',
-                { className: '' },
-                _react2.default.createElement(
-                  'h3',
-                  null,
-                  (0, _auth.decodeToken)().username
-                )
-              )
-            ),
+            'div',
+            { className: 'columns is-multiline' },
             _react2.default.createElement(
               'div',
-              { className: 'media-content' },
+              { className: 'column is-4 is-offest-4' },
               _react2.default.createElement(
-                'div',
-                { className: 'field' },
-                _react2.default.createElement(
-                  'p',
-                  { className: 'control' },
-                  _react2.default.createElement('textarea', { className: 'textarea',
-                    placeholder: 'Add the text of your choice here...',
-                    name: 'text',
-                    value: this.state.text || '',
-                    onChange: this.handleChange
-                  })
-                )
-              )
+                'h2',
+                null,
+                page.pageName
+              ),
+              _react2.default.createElement(
+                'h2',
+                null,
+                page.text
+              ),
+              page && page.choices.map(function (choice) {
+                return _react2.default.createElement(
+                  'div',
+                  { className: '', key: choice._id },
+                  _react2.default.createElement(
+                    'h2',
+                    null,
+                    'Choice: ',
+                    choice.text
+                  )
+                );
+              })
             ),
             _react2.default.createElement(
-              'div',
-              { className: 'media-content' },
+              'article',
+              { className: 'media column is-4 is-offest-4' },
               _react2.default.createElement(
                 'div',
-                { className: 'field' },
+                { className: 'media-content' },
                 _react2.default.createElement(
-                  'p',
-                  { className: 'control' },
-                  _react2.default.createElement('input', { className: 'input',
-                    placeholder: 'Paste the page that you want to connect to this choice here...',
-                    name: 'nextPage',
-                    value: this.state.nextPage || '',
-                    onChange: this.handleChange
-                  })
+                  'div',
+                  { className: 'field' },
+                  _react2.default.createElement(
+                    'p',
+                    { className: 'control' },
+                    _react2.default.createElement('textarea', { className: 'textarea',
+                      placeholder: 'Add the text of your choice here...',
+                      name: 'text',
+                      value: this.state.text || '',
+                      onChange: this.handleChange
+                    })
+                  )
                 )
               ),
               _react2.default.createElement(
-                'nav',
-                { className: 'level' },
+                'div',
+                { className: 'media-content column is-12' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'level-left' },
+                  { className: 'field' },
+                  _react2.default.createElement(
+                    'p',
+                    { className: 'control' },
+                    _react2.default.createElement('input', { className: 'input',
+                      placeholder: 'Paste the page that you want to connect to this choice here...',
+                      name: 'nextPage',
+                      value: this.state.nextPage || '',
+                      onChange: this.handleChange
+                    })
+                  )
+                ),
+                _react2.default.createElement(
+                  'nav',
+                  { className: 'level column is-4 is-offest-4' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'level-item', onClick: this.handleSubmit },
+                    { className: 'level-left' },
                     _react2.default.createElement(
-                      'a',
-                      { className: 'button is-info' },
-                      'Create choice'
+                      'div',
+                      { className: 'level-item', onClick: this.handleSubmit },
+                      _react2.default.createElement(
+                        'a',
+                        { className: 'button is-info' },
+                        'Create choice'
+                      )
                     )
                   )
                 )

@@ -53,7 +53,7 @@ class PageIndex extends React.Component {
     const book = this.props.match.params.id;
     console.log('page is', page);
     return (
-      <section className="columns">
+      <section className="columns page-index">
         {page
           ?
           <div className="column is-12">
@@ -74,15 +74,12 @@ class PageIndex extends React.Component {
                   <div className="card page-card-box">
                     <header className="card-header">
                       <div>
-                        <div className="subtitle has-text-centered">
-                          <h2>{page.pageName}</h2>
-                        </div>
                         <div>
                           <input value={page._id}
                             onChange={({target: {value}}) => this.setState({value, copied: false})}
                             className="copyId" />
-                          <CopyToClipboard text={page._id} className="copy column is-12" onCopy={() => this.setState({copied: true})}>
-                            <button className="button">Copy this ID.</button>
+                          <CopyToClipboard text={page._id} className="id-button" onCopy={() => this.setState({copied: true})}>
+                            <button className="">Connect {  page.pageName } ID.</button>
                           </CopyToClipboard>
                         </div>
                       </div>

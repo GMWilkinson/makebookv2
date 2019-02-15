@@ -64,13 +64,13 @@ var BookNew = function (_React$Component) {
         null,
         _react2.default.createElement(
           'h2',
-          { className: 'title is-2' },
+          { className: 'title is-2 has-text-centered' },
           'Create your own story!'
         ),
         (0, _auth.isAuthenticated)() && _react2.default.createElement(
           'p',
           { className: 'title has-text-centered is-3' },
-          'Created by ',
+          'By ',
           (0, _auth.decodeToken)().username
         ),
         _react2.default.createElement(_NewBookForm2.default, {

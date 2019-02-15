@@ -23,8 +23,8 @@ export default class BookNew extends React.Component {
     console.log('what is', this.state);
     return(
       <section>
-        <h2 className="title is-2">Create your own story!</h2>
-        {isAuthenticated() && <p className="title has-text-centered is-3">Created by {decodeToken().username}</p>}
+        <h2 className="title is-2 has-text-centered">Create your own story!</h2>
+        {isAuthenticated() && <p className="title has-text-centered is-3">By {decodeToken().username}</p>}
         <NewBookForm
           handleChange = {this.handleChange}
           handleSubmit = {this.handleSubmit}

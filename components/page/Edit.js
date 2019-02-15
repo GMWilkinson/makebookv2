@@ -14,6 +14,8 @@ var _axios = require('axios');
 
 var _axios2 = _interopRequireDefault(_axios);
 
+var _auth = require('../../lib/auth');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -63,13 +65,23 @@ var Edit = function (_React$Component) {
       });
     }
   }, {
+    key: 'deleteChoice',
+    value: function deleteChoice(id) {
+      var _props$match$params2 = this.props.match.params,
+          bookId = _props$match$params2.bookId,
+          pageId = _props$match$params2.pageId;
+
+      console.log('deleting book', id);
+      _axios2.default.delete('/api/books/' + bookId + '/pages/' + pageId, (0, _auth.authorizationHeader)()).then(this.props.history.push('/books/unfinished'));
+    }
+  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       var _this3 = this;
 
-      var _props$match$params2 = this.props.match.params,
-          bookId = _props$match$params2.bookId,
-          pageId = _props$match$params2.pageId;
+      var _props$match$params3 = this.props.match.params,
+          bookId = _props$match$params3.bookId,
+          pageId = _props$match$params3.pageId;
 
       _axios2.default.get('/api/books/' + bookId + '/pages/' + pageId).then(_axios2.default.get('/api/books/' + bookId + '/pages')).then(function (res) {
         console.log('this is page: res.data', { page: res.data });
@@ -79,6 +91,8 @@ var Edit = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this4 = this;
+
       var page = this.state.page;
       return _react2.default.createElement(
         'section',
@@ -93,7 +107,7 @@ var Edit = function (_React$Component) {
               'div',
               { className: 'field' },
               _react2.default.createElement(
-                'p',
+                'div',
                 { className: 'control' },
                 _react2.default.createElement('textarea', { className: 'textarea',
                   name: 'text',
@@ -102,6 +116,32 @@ var Edit = function (_React$Component) {
                 })
               )
             )
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            page && page.choices.map(function (choice) {
+              return _react2.default.createElement(
+                'div',
+                { className: 'column is-3', key: choice._id },
+                _react2.default.createElement(
+                  'h3',
+                  null,
+                  choice.text
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'column is-4 is-offset-4 delete-box has-text-centered' },
+                  _react2.default.createElement(
+                    'p',
+                    { className: '', onClick: function onClick() {
+                        return _this4.deleteChoice(choice._id);
+                      } },
+                    'Delete'
+                  )
+                )
+              );
+            })
           ),
           _react2.default.createElement(
             'nav',

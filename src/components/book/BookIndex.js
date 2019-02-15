@@ -33,7 +33,9 @@ class BookIndex extends React.Component {
                 <BookBox className="columns" book={book}/>
                 {(() => {
                   if (book.author === decodeToken().username) {
-                    return <p className="column is-12 card-footer-item" onClick={() => this.deleteBook(book._id)}>Delete</p>
+                    return <div className="column is-4 is-offset-4 delete-box has-text-centered">
+                      <p className="column is-12 card-footer-item" onClick={() => this.deleteBook(book._id)}>Delete</p>
+                    </div>
                   }
                 })()}
               </div>

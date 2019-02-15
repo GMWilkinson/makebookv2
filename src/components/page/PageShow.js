@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
-import { decodeToken } from '../../lib/auth';
+import HintBox from './HintBox';
 
 export default class PageShow extends React.Component {
   constructor(props) {
@@ -45,60 +44,57 @@ export default class PageShow extends React.Component {
     const page = this.state.page;
     console.log('this is this', this.props.match.params);
     return (
-      <section>
+      <section className="page">
         {page
           ?
-
-          <div>
-            <div>
-              <h1>Page</h1>
-              <h2>{ page.pageName }</h2>
-              <h2>{ page.text }</h2>
-              {page && page.choices.map(choice =>
-                <div className="column is-3" key={choice._id}>
-                  <h2>Choice: { choice.text }</h2>
-                </div>
-              )}
-            </div>
-            <article className="media">
-              <figure className="media-left">
-                <p className="">
-                  <h3>{decodeToken().username}</h3>
-                </p>
-              </figure>
-              <div className="media-content">
-                <div className="field">
-                  <p className="control">
-                    <textarea className="textarea"
-                      placeholder="Add the text of your choice here..."
-                      name="text"
-                      value={this.state.text || ''}
-                      onChange={this.handleChange}
-                    />
-                  </p>
-                </div>
-              </div>
-              <div className="media-content">
-                <div className="field">
-                  <p className="control">
-                    <input className="input"
-                      placeholder="Paste the page that you want to connect to this choice here..."
-                      name="nextPage"
-                      value={this.state.nextPage || ''}
-                      onChange={this.handleChange}
-                    />
-                  </p>
-                </div>
-                <nav className="level">
-                  <div className="level-left">
-                    <div className="level-item" onClick={this.handleSubmit}>
-                      <a className="button is-info">Create choice</a>
-                    </div>
+          <article>
+            <h1 className="title has-text-centered">Add Choices</h1>
+            <HintBox />
+            <div className="columns is-multiline">
+              <div className="column is-4 is-offest-4">
+                <h2>{ page.pageName }</h2>
+                <h2>{ page.text }</h2>
+                {page && page.choices.map(choice =>
+                  <div className="" key={choice._id}>
+                    <h2>Choice: { choice.text }</h2>
                   </div>
-                </nav>
+                )}
               </div>
-            </article>
-          </div>
+              <article className="media column is-4 is-offest-4">
+                <div className="media-content">
+                  <div className="field">
+                    <p className="control">
+                      <textarea className="textarea"
+                        placeholder="Add the text of your choice here..."
+                        name="text"
+                        value={this.state.text || ''}
+                        onChange={this.handleChange}
+                      />
+                    </p>
+                  </div>
+                </div>
+                <div className="media-content column is-12">
+                  <div className="field">
+                    <p className="control">
+                      <input className="input"
+                        placeholder="Paste the page that you want to connect to this choice here..."
+                        name="nextPage"
+                        value={this.state.nextPage || ''}
+                        onChange={this.handleChange}
+                      />
+                    </p>
+                  </div>
+                  <nav className="level column is-4 is-offest-4">
+                    <div className="level-left">
+                      <div className="level-item" onClick={this.handleSubmit}>
+                        <a className="button is-info">Create choice</a>
+                      </div>
+                    </div>
+                  </nav>
+                </div>
+              </article>
+            </div>
+          </article>
 
           :
           <p>Please wait...</p>}
